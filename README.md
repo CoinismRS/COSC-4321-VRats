@@ -1,13 +1,13 @@
 # COSC-4321-VRats
 
 ## Team Members
-* Dinuk - DINKU2
+* Dinuk Karunaratne - DINKU2
 * Daniel Garza - danielraygarza 
 * Jorge Umanzor - j-uzr
-* Jackie - Lacieness
+* Jackie Nguyen - Lacieness
 * Micheal Thomas - mthom2333
 * Zayyrahman 
-* Rafael - zentro
+* Rafael Galban - zentro
 * Ilan Lipsky - CoinismRS
 
 
