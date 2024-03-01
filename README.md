@@ -13,11 +13,11 @@
 
 LEvel of complexity -
 
-1 - Painting and tiling/paneling for walls and floor
-2 - Stud finder, project stud across wall 
-3 - Saving objects placed 
+* 1 - Painting and tiling/paneling for walls and floor
+* 2 - Stud finder, project stud across wall 
+* 3 - Saving objects placed 
 
-Cryptic Cabinet - mixed reality 
+(Optional) Cryptic Cabinet - mixed reality 
 ## Project Description
 
 A VR interior design application for users to plan room layouts that:
