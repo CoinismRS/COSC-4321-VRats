@@ -1,14 +1,14 @@
 # COSC-4321-VRats
 
 ## Team Members
-Dinuk - DINKU2
-Daniel Garza - danielraygarza 
-Jorge Umanzor - j-uzr
-Jackie - Lacieness
-Micheal Thomas - mthom2333
-- Zayyrahman 
-Rafael - zentro
-Ilan Lipsky - CoinismRS
+* Dinuk - DINKU2
+* Daniel Garza - danielraygarza 
+* Jorge Umanzor - j-uzr
+* Jackie - Lacieness
+* Micheal Thomas - mthom2333
+* Zayyrahman 
+* Rafael - zentro
+* Ilan Lipsky - CoinismRS
 
 
 LEvel of complexity -
