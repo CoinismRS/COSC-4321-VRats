@@ -11,7 +11,7 @@
 * Ilan Lipsky - CoinismRS
 
 
-LEvel of complexity -
+Level of complexity -
 
 * 1 - Painting and tiling/paneling for walls and floor
 * 2 - Stud finder, project stud across wall 
