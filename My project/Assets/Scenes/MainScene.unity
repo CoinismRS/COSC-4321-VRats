@@ -1888,7 +1888,7 @@ GameObject:
   - component: {fileID: 1723242745}
   - component: {fileID: 1723242744}
   m_Layer: 0
-  m_Name: '[BuildingBlock] Room Model'
+  m_Name: '[BuildingBlock] Scene Understanding (Room Model)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
