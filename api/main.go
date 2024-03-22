@@ -2,32 +2,39 @@ package main
 
 import (
 	"net/http"
+	"strings"
+
 	"github.com/gin-gonic/gin"
 )
 
 type Color struct {
-	Name string 'json:"name"'
-	Brand string 'json:"brand"'
-	Code string 'json:"code"'
-}
-
-type User struct {
-	Name string 'json:"name"'
+	Name  string `json:"name"`
+	Brand string `json:"brand"`
+	Code  string `json:"code"`
 }
 
 // DEMO, REMOVE LATER
-var paintColors = []PaintColor{
+var paintColors = []Color{
 	{"Alabaster", "Sherwin-Williams", "#efefef"},
 	{"Chantilly Lace", "Benjamin Moore", "#f8f7fc"},
 	{"Polar Bear", "Behr Marquee", "#f0f0f0"},
 }
 
 func getAllColors(c *gin.Context) {
-
+	c.JSON(http.StatusOK, paintColors)
 }
 
 func getAllColorsByBrand(c *gin.Context) {
+	brand := c.Param("brand") // Get the brand name from the URL
 
+	filteredColors := []Color{}
+	for _, color := range paintColors {
+		if strings.EqualFold(color.Brand, brand) {
+			filteredColors = append(filteredColors, color)
+		}
+	}
+
+	c.JSON(http.StatusOK, filteredColors)
 }
 
 func getColorByColor(c *gin.Context) {
