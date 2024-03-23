@@ -1,0 +1,26 @@
+﻿void CreateFloorOverlay()
+{
+    if (roomModelInstance == null)
+    {
+        Debug.LogError("Room Model is not instantiated.");
+        return;
+    }
+
+    // Get the room's floor mesh
+    Mesh roomFloorMesh = roomModelInstance.GetComponent<MetaRoomModel>().floorMesh;
+
+    // Create a new plane GameObject for the floor overlay
+    GameObject floorOverlay = GameObject.CreatePrimitive(PrimitiveType.Plane);
+    floorOverlay.name = "FloorOverlay";
+    floorOverlay.transform.position = Vector3.zero;
+    floorOverlay.transform.rotation = Quaternion.identity;
+
+    // Scale the plane to match the room's floor size
+    Vector3 scale = roomModelInstance.transform.localScale;
+    floorOverlay.transform.localScale = new Vector3(scale.x, scale.z, 1f);
+
+    // Add a MeshRenderer component and assign a transparent material to it
+    MeshRenderer meshRenderer = floorOverlay.GetComponent<MeshRenderer>();
+    meshRenderer.material = new Material(Shader.Find("Standard"));
+    meshRenderer.material.color = new Color(1f, 1f, 1f, 0.5f); // Adjust alpha for transparency
+}
