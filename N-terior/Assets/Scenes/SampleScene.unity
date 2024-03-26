@@ -4939,21 +4939,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a692e324eb973784e97b053466464e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallPrefab:
-    Prefab: {fileID: 6769354716739710708, guid: aabe86b33c09d414d818588060862239,
-      type: 3}
-    ClassificationLabel: WALL_FACE
-    _editorClassificationIndex: 2
-  windows:
-    Prefab: {fileID: 3638511278292497754, guid: 6f6b7d6e48f64bf45918a6b6de00bb37,
-      type: 3}
-    ClassificationLabel: WALL_ART
-    _editorClassificationIndex: 14
-  art:
-    Prefab: {fileID: 3638511278292497754, guid: 6f6b7d6e48f64bf45918a6b6de00bb37,
-      type: 3}
-    ClassificationLabel: WINDOW_FRAME
-    _editorClassificationIndex: 6
+  wallMat: {fileID: 2100000, guid: f6602475aaec734419a2c47b17d62531, type: 2}
+  floorMat: {fileID: 2100000, guid: f6602475aaec734419a2c47b17d62531, type: 2}
 --- !u!4 &912474937
 Transform:
   m_ObjectHideFlags: 0
@@ -9002,7 +8989,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1531406517
 Transform:
   m_ObjectHideFlags: 0
@@ -11463,7 +11450,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992978150}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
