@@ -28,33 +28,13 @@ public class changeWallColor : MonoBehaviour
 
 
     }
-    /*void Start()
-    {
-
-    }*/
-
-    void Update()
-    {
-
-        //oVRSceneManager.PrefabOverrides[0] = wallPrefab;
-
-
-    }
-
-
-
 
     public void SceneLoaded()
     {
         Debug.Log("func started");
         room = FindObjectOfType<OVRSceneRoom>();
-        if (room != null)
-        {
-            Debug.Log("Room Exsits");
-
-        }
         walls = room.Walls;
-        Debug.Log("I am here dsfbsdjkfnkdjsfndsjk" + walls.Length);
+      
 
     }
 }
