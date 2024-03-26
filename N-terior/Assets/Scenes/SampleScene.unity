@@ -4945,12 +4945,12 @@ MonoBehaviour:
     ClassificationLabel: WALL_FACE
     _editorClassificationIndex: 2
   windows:
-    Prefab: {fileID: 2934582652075515795, guid: 56a1e0f4be8ef8f4089c6aa42507cde3,
+    Prefab: {fileID: 3638511278292497754, guid: 6f6b7d6e48f64bf45918a6b6de00bb37,
       type: 3}
     ClassificationLabel: WALL_ART
     _editorClassificationIndex: 14
   art:
-    Prefab: {fileID: 2934582652075515795, guid: 56a1e0f4be8ef8f4089c6aa42507cde3,
+    Prefab: {fileID: 3638511278292497754, guid: 6f6b7d6e48f64bf45918a6b6de00bb37,
       type: 3}
     ClassificationLabel: WINDOW_FRAME
     _editorClassificationIndex: 6

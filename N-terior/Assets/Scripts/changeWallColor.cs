@@ -34,6 +34,7 @@ public class changeWallColor : MonoBehaviour
         Debug.Log("func started");
         room = FindObjectOfType<OVRSceneRoom>();
         walls = room.Walls;
+        
       
 
     }

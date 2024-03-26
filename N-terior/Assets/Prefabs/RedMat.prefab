@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 4956137587763520364}
   - component: {fileID: 6159292507484067365}
   m_Layer: 9
-  m_Name: transparent
+  m_Name: RedMat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
