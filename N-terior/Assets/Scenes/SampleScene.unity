@@ -9660,7 +9660,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlanePrefab: {fileID: 1992978151}
   VolumePrefab: {fileID: 155162299}
-  PrefabOverrides: []
+  PrefabOverrides:
+  - Prefab: {fileID: 2934582652075515795, guid: 56a1e0f4be8ef8f4089c6aa42507cde3,
+      type: 3}
+    ClassificationLabel: DOOR_FRAME
+    _editorClassificationIndex: 5
+  - Prefab: {fileID: 2934582652075515795, guid: 56a1e0f4be8ef8f4089c6aa42507cde3,
+      type: 3}
+    ClassificationLabel: WALL_ART
+    _editorClassificationIndex: 14
+  - Prefab: {fileID: 2934582652075515795, guid: 56a1e0f4be8ef8f4089c6aa42507cde3,
+      type: 3}
+    ClassificationLabel: WINDOW_FRAME
+    _editorClassificationIndex: 6
   ActiveRoomsOnly: 1
   VerboseLogging: 0
   MaxSceneAnchorUpdatesPerFrame: 5

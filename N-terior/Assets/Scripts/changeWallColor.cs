@@ -17,7 +17,8 @@ public class changeWallColor : MonoBehaviour
     //public OVRScenePrefabOverride art;
     public Material wallMat;
     public Material floorMat;
-    //public Color wallColor;
+    public Color wallColor;
+    public Color floorColor;
 
     private void Awake()
     {
@@ -38,6 +39,8 @@ public class changeWallColor : MonoBehaviour
     {
         if (room != null)
         {
+            wallMat.color = wallColor;
+            floorMat.color = floorColor;
             var ceilingMaterial = ceiling.GetComponent<MeshRenderer>();
             var floorMaterial = floor.GetComponent<MeshRenderer>();
             ceilingMaterial.material = wallMat;
