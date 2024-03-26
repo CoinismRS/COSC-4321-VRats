@@ -4939,8 +4939,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a692e324eb973784e97b053466464e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallMat: {fileID: 2100000, guid: f6602475aaec734419a2c47b17d62531, type: 2}
-  floorMat: {fileID: 2100000, guid: f6602475aaec734419a2c47b17d62531, type: 2}
+  wallMat: {fileID: 2100000, guid: d7e1058704065634b8158d828d715b63, type: 2}
+  floorMat: {fileID: 2100000, guid: b32183a9d6da0c047a9545ada1c1f05b, type: 2}
+  wallColor: {r: 1, g: 0.9415095, b: 0.9415095, a: 0}
+  floorColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &912474937
 Transform:
   m_ObjectHideFlags: 0
