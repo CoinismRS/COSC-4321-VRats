@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using Unity.VisualScripting;
+using Meta.XR.BuildingBlocks;
 
 public class changeWallColor : MonoBehaviour
 {
@@ -12,9 +13,10 @@ public class changeWallColor : MonoBehaviour
     private OVRScenePlane[] walls;
     private OVRScenePlane ceiling;
     private OVRScenePlane floor;
+    private PassthroughProjectionSurfaceBuildingBlock passThroughWindow;
     //public OVRScenePrefabOverride wallPrefab;
     //public OVRScenePrefabOverride windows;
-    //public OVRScenePrefabOverride art;
+
     public Material wallMat;
     public Material floorMat;
     public Color wallColor;
@@ -60,5 +62,15 @@ public class changeWallColor : MonoBehaviour
         walls = room.Walls;
         ceiling = room.Ceiling;
         floor = room.Floor;
+        //passThroughWindow = FindObjectOfType<PassthroughProjectionSurfaceBuildingBlock>();
+        //OVRScenePlane window = passThroughWindow.GetComponent<OVRScenePlane>();
+        //var mesh = passThroughWindow.GetComponentInChildren<Transform>();
+        //passThroughWindow.transform.localScale = new Vector3(1, 1, 1);
+        //Debug.Log("Height:" + window.Height);
+        //Debug.Log("Width:" + window.Width);
+        //mesh.localScale = new Vector3(window.Height, window.Height, 1);
+        //OVRSceneManager.Classification.WallFace = "Wall";
+        //art = FindObjectOfType<OVRSceneManager.Classification>();
+
     }
 }
