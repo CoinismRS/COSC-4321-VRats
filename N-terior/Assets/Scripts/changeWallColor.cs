@@ -19,8 +19,8 @@ public class changeWallColor : MonoBehaviour
 
     public Material wallMat;
     public Material floorMat;
-    public Color wallColor;
-    public Color floorColor;
+    public Color wallColor = Color.clear;
+    public Color floorColor = Color.clear;
 
     private void Awake()
     {
@@ -41,16 +41,24 @@ public class changeWallColor : MonoBehaviour
     {
         if (room != null)
         {
-            wallMat.color = wallColor;
-            floorMat.color = floorColor;
-            var ceilingMaterial = ceiling.GetComponent<MeshRenderer>();
-            var floorMaterial = floor.GetComponent<MeshRenderer>();
-            ceilingMaterial.material = wallMat;
-            floorMaterial.material = floorMat;
-            foreach (var wall in walls)
+            if (wallColor != Color.clear && floorColor != Color.clear)
             {
-                var wallMaterial = wall.GetComponent<MeshRenderer>();
-                wallMaterial.material = wallMat;
+
+
+                wallMat.color = wallColor;
+                floorMat.color = floorColor;
+                var ceilingMaterial = ceiling.GetComponent<MeshRenderer>();
+                var floorMaterial = floor.GetComponent<MeshRenderer>();
+                ceilingMaterial.enabled = true;
+                floorMaterial.enabled = true;
+                ceilingMaterial.material = wallMat;
+                floorMaterial.material = floorMat;
+                foreach (var wall in walls)
+                {
+                    var wallMaterial = wall.GetComponent<MeshRenderer>();
+                    wallMaterial.enabled = true;
+                    wallMaterial.material = wallMat;
+                }
             }
 
         }
