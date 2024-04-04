@@ -19,9 +19,8 @@ public class changeWallColor : MonoBehaviour
 
     public Material wallMat;
     public Material floorMat;
-    public Color wallColor = Color.clear;
-    public Color floorColor = Color.clear;
-
+    public Color wallColor = Color.red;
+    public Color floorColor = Color.green;
     private void Awake()
     {
         Debug.Log("Awakeeeeee");
