@@ -5574,7 +5574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallMat: {fileID: 2100000, guid: d7e1058704065634b8158d828d715b63, type: 2}
-  floorMat: {fileID: 2100000, guid: b32183a9d6da0c047a9545ada1c1f05b, type: 2}
+  floorMat: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   wallColor: {r: 0, g: 0, b: 0, a: 0}
   floorColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &912474937

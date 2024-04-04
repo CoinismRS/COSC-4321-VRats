@@ -43,7 +43,7 @@ public class changeWallColor : MonoBehaviour
         {
             if (wallColor != Color.clear && floorColor != Color.clear)
             {
-
+                
 
                 wallMat.color = wallColor;
                 floorMat.color = floorColor;
