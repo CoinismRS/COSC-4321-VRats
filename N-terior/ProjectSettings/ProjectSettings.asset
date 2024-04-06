@@ -812,6 +812,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
+    Android: NORMCORE
     Standalone: NORMCORE
   additionalCompilerArguments: {}
   platformArchitecture: {}
