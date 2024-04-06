@@ -5,6 +5,7 @@ using TMPro;
 using System;
 using Unity.VisualScripting;
 using Meta.XR.BuildingBlocks;
+using UnityEngine.UIElements;
 
 public class changeWallColor : MonoBehaviour
 {
@@ -17,11 +18,20 @@ public class changeWallColor : MonoBehaviour
     public Material floorMat;
     
     public FlexibleColorPicker fcp;
+    private GameObject[] wallStuffs;
     private void Awake()
     {
         oVRSceneManager = FindObjectOfType<OVRSceneManager>();
         oVRSceneManager.SceneModelLoadedSuccessfully += SceneLoaded;
+        wallStuffs = GameObject.FindGameObjectsWithTag("wallStuff");
+        Debug.Log("Walllllll" + wallStuffs);
         fcp.color = Color.clear;
+        foreach (var wallStuff in wallStuffs)
+        {
+            Debug.Log("hello");
+            var stuff = wallStuff.GetComponent<OVRScenePlane>();
+            //Debug.Log("prefabOverride:" + stuff.Width + stuff.Height);
+        }
 
     }
 
@@ -30,6 +40,8 @@ public class changeWallColor : MonoBehaviour
     {
         if (room != null)
         {
+            var wallCeilingArea = getAreaOfRoom();
+            Debug.Log("Total" + wallCeilingArea);
             var ceilingMaterial = ceiling.GetComponent<MeshRenderer>();
 
             if (fcp.color != Color.clear)
@@ -58,5 +70,16 @@ public class changeWallColor : MonoBehaviour
         room = FindObjectOfType<OVRSceneRoom>();
         walls = room.Walls;
         ceiling = room.Ceiling;
+    }
+
+    public double getAreaOfRoom()
+    {
+        double area = (ceiling.Width * ceiling.Height);
+        foreach (var wall in walls)
+        {
+            area += (wall.Width * wall.Height);
+        }
+
+        return area;  
     }
 }
