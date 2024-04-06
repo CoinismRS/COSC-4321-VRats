@@ -145,6 +145,16 @@
       },
       "url": "https://normcore-registry.normcore.io"
     },
+    "com.solersoft.mrmusk": {
+      "version": "https://github.com/SolerSoft/mr-musk.git?path=/Assets/Packages/com.solersoft.mrmusk",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.meta.xr.sdk.all": "60.0.0",
+        "com.normalvr.normcore": "2.9.2"
+      },
+      "hash": "fa54cb36157b8eeccf92ad3563ff221200de8ea4"
+    },
     "com.unity.ai.navigation": {
       "version": "1.1.5",
       "depth": 2,
