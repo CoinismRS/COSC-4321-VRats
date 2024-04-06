@@ -24,7 +24,7 @@ public class changeWallColor : MonoBehaviour
         oVRSceneManager = FindObjectOfType<OVRSceneManager>();
         oVRSceneManager.SceneModelLoadedSuccessfully += SceneLoaded;
         wallStuffs = GameObject.FindGameObjectsWithTag("wallStuff");
-        Debug.Log("Walllllll" + wallStuffs);
+       
         fcp.color = Color.clear;
         foreach (var wallStuff in wallStuffs)
         {
