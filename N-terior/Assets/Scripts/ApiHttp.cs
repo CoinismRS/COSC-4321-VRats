@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class ColorData
 {
     public string name; 
-    public string hex;
+    public string code;
 }
 
 [System.Serializable]
@@ -18,7 +18,7 @@ public class RootColors
 public class ApiHttp : MonoBehaviour
 {
     // URL of your localhost server
-    private const string localhostUrl = "http://localhost:3000/"; // Replace 3000 with your server's port
+    private const string localhostUrl = "http://localhost:8080/"; // Replace 3000 with your server's port
 
     void Start()
     {
@@ -52,7 +52,7 @@ public class ApiHttp : MonoBehaviour
                     // Extract the "colors" array from the response
                     foreach (ColorData colorData in rootColors.colors)
                     {
-                        Debug.Log("Color Name: " + colorData.name + ", Hex: " + colorData.hex);
+                        Debug.Log("Color Name: " + colorData.name + ", Hex: " + colorData.code);
                     }
                 }
                 catch (System.Exception e)
