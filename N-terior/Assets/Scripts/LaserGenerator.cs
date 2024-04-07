@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Laser : MonoBehaviour
+public class LaserGenerator : MonoBehaviour
 {
     private LineRenderer lineRenderer;
 
@@ -36,4 +36,14 @@ public class Laser : MonoBehaviour
             lineRenderer.SetPosition(1, raycastOrigin + raycastDirection * 100f); // Change 100f to your desired maximum distance
         }
     }
+
+    /*void ToggleLaser()
+    {
+        // TODO: Allow the user to toggle laser on and off via click/pokeable
+        if (Input.GetMouseButtonDown(0))
+        {
+            lineRenderer.enabled = !lineRenderer.enabled;
+        }
+    }
+    */
 }
