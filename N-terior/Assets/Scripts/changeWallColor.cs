@@ -6,6 +6,7 @@ using System;
 using Unity.VisualScripting;
 using Meta.XR.BuildingBlocks;
 using UnityEngine.UIElements;
+using System.ComponentModel;
 
 public class changeWallColor : MonoBehaviour
 {
@@ -18,42 +19,36 @@ public class changeWallColor : MonoBehaviour
     public Material floorMat;
     
     public FlexibleColorPicker fcp;
-    private GameObject[] wallStuffs;
+    private List<double> wallStuffsArea = new List<double>();
     private GameObject roomModel;
+    public double paintAreaNeeded;
+
     private void Awake()
     {
         oVRSceneManager = FindObjectOfType<OVRSceneManager>();
         oVRSceneManager.SceneModelLoadedSuccessfully += SceneLoaded;
-        //var r = oVRSceneManager.GetComponentInChildren<GameObject.FindGameObjectsWithTag("")>();
-        //wallStuffs = GameObject.FindGameObjectsWithTag("wallStuff");
-       
         fcp.color = Color.clear;
-        /*foreach (var wallStuff in wallStuffs)
-        {
-            Debug.Log("hello");
-            var stuff = wallStuff.GetComponent<OVRScenePlane>();
-            //Debug.Log("prefabOverride:" + stuff.Width + stuff.Height);
-        }*/
-
     }
-
 
     private void Update()
     {
+        if (paintAreaNeeded == 0)
+        {
+            var totalArea = getAreaOfRoom();
+            var areaDeductions = getWallStuffsArea();
+            paintAreaNeeded = totalArea - areaDeductions;
+      
+        }
+
         if (room != null)
         {
-            wallStuffs = GameObject.FindGameObjectsWithTag("wallStuff");
-            Debug.Log("wallStuffs:" + wallStuffs);
-            var wallCeilingArea = getAreaOfRoom();
-            //Debug.Log("Total" + wallCeilingArea);
             var ceilingMaterial = ceiling.GetComponent<MeshRenderer>();
 
             if (fcp.color != Color.clear)
             {
                 wallMat.color = fcp.color;
-              
+
                 ceilingMaterial.enabled = true;
-              
                 ceilingMaterial.material = wallMat;
                 
                 foreach (var wall in walls)
@@ -63,28 +58,55 @@ public class changeWallColor : MonoBehaviour
                     wallMaterial.material = wallMat;
                 }
             } 
-
-           
-        }
-        
+        } 
     }
 
     public void SceneLoaded()
     {
         room = FindObjectOfType<OVRSceneRoom>();
+        roomModel = room.gameObject;
         walls = room.Walls;
         ceiling = room.Ceiling;
+
+        OVRSemanticClassification[] allClasses = roomModel.GetComponentsInChildren<OVRSemanticClassification>();
+        foreach (var wallThing in allClasses)
+        {
+            if (wallThing.Contains("DOOR_FRAME") || wallThing.Contains("WINDOW_FRAME"))
+            {
+                var wallStuff = wallThing.gameObject;
+                var plane = wallStuff.GetComponent<OVRScenePlane>();
+                wallStuffsArea.Add((plane.Width * plane.Height));
+            }
+
+        }
     }
 
     public double getAreaOfRoom()
     {
-        double area = (ceiling.Width * ceiling.Height);
-        
-        foreach (var wall in walls)
-        {
-            area += (wall.Width * wall.Height);
-        }
+        double area = 0.0;
 
+        if (ceiling != null)
+        {
+            area += (ceiling.Width * ceiling.Height);
+            foreach (var wall in walls)
+            {
+                if (wall != null)
+                {
+                    area += (wall.Width * wall.Height);
+                }
+            }
+        }
         return area;  
+    }
+
+    public double getWallStuffsArea()
+    {
+        double area = 0;
+
+        foreach (var wallStuffArea in wallStuffsArea)
+        {
+            area += wallStuffArea; 
+        }
+        return area;
     }
 }
