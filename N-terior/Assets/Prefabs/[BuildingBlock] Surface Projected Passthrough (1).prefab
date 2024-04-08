@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 7105422571020115476}
   m_Layer: 0
   m_Name: '[BuildingBlock] Surface Projected Passthrough (1)'
-  m_TagString: Untagged
+  m_TagString: wallStuff
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
