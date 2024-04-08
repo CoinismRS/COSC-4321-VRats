@@ -3,23 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Anchor
-  - wallStuff
-  - RoomModel
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - HiddenMesh
+  - 
   - Water
   - UI
   - 
   - 
   - 
   - 
-  - Character
-  - MirroredCharacter
+  - 
+  - 
   - 
   - 
   - 
