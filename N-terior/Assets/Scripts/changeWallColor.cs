@@ -19,19 +19,21 @@ public class changeWallColor : MonoBehaviour
     
     public FlexibleColorPicker fcp;
     private GameObject[] wallStuffs;
+    private GameObject roomModel;
     private void Awake()
     {
         oVRSceneManager = FindObjectOfType<OVRSceneManager>();
         oVRSceneManager.SceneModelLoadedSuccessfully += SceneLoaded;
-        wallStuffs = GameObject.FindGameObjectsWithTag("wallStuff");
+        //var r = oVRSceneManager.GetComponentInChildren<GameObject.FindGameObjectsWithTag("")>();
+        //wallStuffs = GameObject.FindGameObjectsWithTag("wallStuff");
        
         fcp.color = Color.clear;
-        foreach (var wallStuff in wallStuffs)
+        /*foreach (var wallStuff in wallStuffs)
         {
             Debug.Log("hello");
             var stuff = wallStuff.GetComponent<OVRScenePlane>();
             //Debug.Log("prefabOverride:" + stuff.Width + stuff.Height);
-        }
+        }*/
 
     }
 
@@ -40,8 +42,10 @@ public class changeWallColor : MonoBehaviour
     {
         if (room != null)
         {
+            wallStuffs = GameObject.FindGameObjectsWithTag("wallStuff");
+            Debug.Log("wallStuffs:" + wallStuffs);
             var wallCeilingArea = getAreaOfRoom();
-            Debug.Log("Total" + wallCeilingArea);
+            //Debug.Log("Total" + wallCeilingArea);
             var ceilingMaterial = ceiling.GetComponent<MeshRenderer>();
 
             if (fcp.color != Color.clear)
@@ -75,6 +79,7 @@ public class changeWallColor : MonoBehaviour
     public double getAreaOfRoom()
     {
         double area = (ceiling.Width * ceiling.Height);
+        
         foreach (var wall in walls)
         {
             area += (wall.Width * wall.Height);
