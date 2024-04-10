@@ -5,14 +5,15 @@ using UnityEngine;
 public class ColorStruct : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    public class ColorInfo
     {
-        
+        public string name;
+        public string hex;
     }
 
-    // Update is called once per frame
-    void Update()
+    [System.Serializable]
+    public class ColorList
     {
-        
+        public List<ColorInfo> colors;
     }
 }
