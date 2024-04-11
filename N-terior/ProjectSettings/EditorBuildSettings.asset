@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Samples/Meta XR Interaction SDK OVR Samples/63.0.0/Example Scenes/PokeExamples.unity
     guid: ada3086bde0ab18459589e22d8d9e182
+  - enabled: 0
+    path: Assets/Scenes/LaserLevel.unity
+    guid: 74c4aa05101103f40b147cbf88d27946
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 8bfa9f1937f3749e8b4dc00fac17a732,
       type: 2}
