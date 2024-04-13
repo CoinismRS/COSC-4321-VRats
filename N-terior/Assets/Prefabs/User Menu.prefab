@@ -970,7 +970,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 270, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5053215455624483724
 CanvasRenderer:
@@ -1000,7 +1000,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Area Size: 200 Sq Ft.'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 23bb92df1ad5f7f419ecdc502ba82311, type: 2}
   m_sharedMaterial: {fileID: -1098779281287830357, guid: 23bb92df1ad5f7f419ecdc502ba82311,
@@ -1102,6 +1102,7 @@ RectTransform:
   - {fileID: 8909324990820452235}
   - {fileID: 4969996148800220858}
   - {fileID: 2907418521183626151}
+  - {fileID: 7739178678413007588}
   - {fileID: 5143804618421479112}
   - {fileID: 6135757633125116057}
   - {fileID: 3766756392859627614}
@@ -1113,7 +1114,6 @@ RectTransform:
   - {fileID: 5940288868244144275}
   - {fileID: 4567114789291967472}
   - {fileID: 4680042798971247624}
-  - {fileID: 7739178678413007588}
   m_Father: {fileID: 5520563017877710461}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4197,6 +4197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a77c1f657b24cc4dbb5048261a597a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fcp: {fileID: 0}
+  paintName: {fileID: 0}
+  wallArea: {fileID: 0}
+  wallPainter: {fileID: 0}
 --- !u!1 &3942650495056619351
 GameObject:
   m_ObjectHideFlags: 0
@@ -6671,7 +6675,6 @@ GameObject:
   - component: {fileID: 6135757633125116057}
   - component: {fileID: 7645752639189811383}
   - component: {fileID: 5950793577239202129}
-  - component: {fileID: 6853340249142907526}
   m_Layer: 0
   m_Name: Display_Paint_name_txt
   m_TagString: Untagged
@@ -6796,20 +6799,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6853340249142907526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6865311241110286062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 103b83941ef20d34592a835751135218, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fcp: {fileID: 0}
-  hexText: {fileID: 5950793577239202129}
 --- !u!1 &6905207800180138843
 GameObject:
   m_ObjectHideFlags: 0
