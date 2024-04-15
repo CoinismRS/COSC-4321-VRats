@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 using System.IO;
+using System.Net;
 
 public class ColorLoader : MonoBehaviour
 {
+    private const string localhostUrl = "http://localhost:8080/"; // Replace 3000 with your server's port
+    private const string getColorUrl = localhostUrl + "colors"; // Example GET endpoint
     public GameObject colorItemPrefab;
     public Text priceTextPrefab;
     public Transform contentPanel;
@@ -15,27 +19,41 @@ public class ColorLoader : MonoBehaviour
         LoadColors();
     }
 
-    // Loads the color data from the colors.json file.
     void LoadColors()
     {
-        string filePath = Path.Combine(Application.dataPath, "Scripts/colors.json");
-        
-        if (System.IO.File.Exists(filePath))
+        // Create a UnityWebRequest object to make the HTTP request
+        UnityWebRequest www = UnityWebRequest.Get(getColorUrl);
+
+        // Send the request asynchronously
+        StartCoroutine(SendWebRequest(www));
+    }
+
+    // Loads the color data from the colors.json file.
+    IEnumerator SendWebRequest(UnityWebRequest www)
+    {
+        // Send the request and wait for the response
+        yield return www.SendWebRequest();
+
+        // Check if there were any errors
+        if (www.result != UnityWebRequest.Result.Success)
         {
-            string dataAsJson = System.IO.File.ReadAllText(filePath);
+            // Log the error if the request fails
+            Debug.LogError("Failed to load color data: " + www.error);
+        }
+        else
+        {
+            // Extract JSON data from the response
+            string dataAsJson = www.downloadHandler.text;
             
             // Deserialize the JSON to the ColorList object
-            ColorList colorList = JsonUtility.FromJson<ColorList>("{\"colors\":" + dataAsJson + "}");
+            ColorList colorList = JsonUtility.FromJson<ColorList>(dataAsJson);
+            Debug.Log(colorList);
             
             // Populate UI with the deserialized color data
             PopulateUI(colorList);
         }
-        else
-        {
-            // If the file doesn't exist, log an error message.
-            Debug.LogError("Cannot load color data!");
-        }
     }
+
 
     // Converts a hex color string to a color object
     Color HexToColor(string hex)

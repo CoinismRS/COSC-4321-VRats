@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class ColorData
 {
     public string name; 
-    public string code;
+    public string hex;
 }
 
 [System.Serializable]
@@ -52,7 +52,7 @@ public class ApiHttp : MonoBehaviour
                     // Extract the "colors" array from the response
                     foreach (ColorData colorData in rootColors.colors)
                     {
-                        Debug.Log("Color Name: " + colorData.name + ", Hex: " + colorData.code);
+                        Debug.Log("Color Name: " + colorData.name + ", Hex: " + colorData.hex);
                     }
                 }
                 catch (System.Exception e)
