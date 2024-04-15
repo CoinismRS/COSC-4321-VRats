@@ -7,7 +7,9 @@
     <list default="true" id="24337d3e-d3eb-447d-bae4-00ba146d945f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.N-terior/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.N-terior/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Oculus/OculusProjectConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Oculus/OculusProjectConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/CatalogButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/CatalogButton.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Catalog.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Catalog.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColorInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ColorInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColorLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ColorLoader.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,6 +102,7 @@
       <workItem from="1712447166777" duration="1358000" />
       <workItem from="1712755144189" duration="289000" />
       <workItem from="1712989036438" duration="1872000" />
+      <workItem from="1713212189362" duration="5003000" />
     </task>
     <servers />
   </component>

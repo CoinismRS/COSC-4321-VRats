@@ -7,6 +7,7 @@ public class ColorInfo
 {
     public string name;
     public string hex;
+    public float price;
 }
 
 [System.Serializable]

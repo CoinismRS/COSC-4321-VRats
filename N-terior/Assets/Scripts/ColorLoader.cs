@@ -7,6 +7,7 @@ using System.IO;
 public class ColorLoader : MonoBehaviour
 {
     public GameObject colorItemPrefab;
+    public Text priceTextPrefab;
     public Transform contentPanel;
 
     void Start()
@@ -69,6 +70,12 @@ public class ColorLoader : MonoBehaviour
             
             // Set the color name in the prefab's Text component
             newItem.GetComponentInChildren<Text>().text = color.name;
+            
+            // Assign a random price between 15 and 20 to the color
+            color.price = (Mathf.Round(Random.Range(15f, 20.5f) * 2) / 2) - 0.01f; // 21 is exclusive
+            Text priceTextComponent = Instantiate(priceTextPrefab, newItem.transform).GetComponent<Text>();
+            // display price value for price
+            priceTextComponent.text = "$" + color.price.ToString("F2") + " / gallon";
             
             // Set its color based on the hex value.
             Image background = newItem.GetComponentInChildren<Image>();
