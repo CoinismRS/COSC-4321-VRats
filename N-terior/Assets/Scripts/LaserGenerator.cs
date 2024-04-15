@@ -37,13 +37,10 @@ public class LaserGenerator : MonoBehaviour
         }
     }
 
-    /*void ToggleLaser()
+    public void OnClick()
     {
         // TODO: Allow the user to toggle laser on and off via click/pokeable
-        if (Input.GetMouseButtonDown(0))
-        {
-            lineRenderer.enabled = !lineRenderer.enabled;
-        }
+        lineRenderer.enabled = !lineRenderer.enabled;
     }
-    */
+    
 }
