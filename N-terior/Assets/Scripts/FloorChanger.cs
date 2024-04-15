@@ -53,7 +53,7 @@ public class floorChanger : MonoBehaviour
 
                 //ceilingMaterial.enabled = true;
                 floorMaterial.enabled = true;
-                ceilingMaterial.material = wallMat;
+                // ceilingMaterial.material = wallMat;
                 floorMaterial.material = floorMat;
                 /*foreach (var wall in walls)
                 {
