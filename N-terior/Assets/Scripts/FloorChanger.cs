@@ -17,7 +17,6 @@ public class floorChanger : MonoBehaviour
     {
         oVRSceneManager = FindObjectOfType<OVRSceneManager>();
         oVRSceneManager.SceneModelLoadedSuccessfully += SceneLoaded;
-        fcp.color = Color.clear;
     }
 
 
