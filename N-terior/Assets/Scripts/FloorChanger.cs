@@ -6,7 +6,7 @@ using System;
 using Unity.VisualScripting;
 using Meta.XR.BuildingBlocks;
 
-public class floorChanger : MonoBehaviour
+public class FloorChanger : MonoBehaviour
 {
     private OVRSceneManager oVRSceneManager;
     private OVRSceneRoom room;
@@ -45,23 +45,23 @@ public class floorChanger : MonoBehaviour
         {
             //var ceilingMaterial = ceiling.GetComponent<MeshRenderer>();
             var floorMaterial = floor.GetComponent<MeshRenderer>();
-            if (fcp.color != Color.clear)
-            {
+           
+            
                 //wallMat.color = fcp.color;
                 //floorMat.color = floorColor;
 
 
                 //ceilingMaterial.enabled = true;
-                floorMaterial.enabled = true;
+            floorMaterial.enabled = true;
                 // ceilingMaterial.material = wallMat;
-                floorMaterial.material = floorMat;
+            floorMaterial.material = floorMat;
                 /*foreach (var wall in walls)
                 {
                     var wallMaterial = wall.GetComponent<MeshRenderer>();
                     wallMaterial.enabled = true;
                     wallMaterial.material = wallMat;
                 }*/
-            }
+            
 
 
         }
