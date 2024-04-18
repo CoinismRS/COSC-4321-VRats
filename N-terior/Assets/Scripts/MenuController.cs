@@ -30,33 +30,37 @@ public class MenuController : MonoBehaviour
     Application.Quit();
   }
 
-    void LoadColors()
-    {
-        string filePath = Path.Combine(Application.dataPath, "Scripts/colors.json");
-        
-        if (System.IO.File.Exists(filePath))
-        {
-            string dataAsJson = System.IO.File.ReadAllText(filePath);
-            
-            ColorListWrapper colorListWrapper = JsonUtility.FromJson<ColorListWrapper>("{\"colors\":" + dataAsJson + "}");
-            
-            colorList = colorListWrapper.colors;
-        }
-        else
-        {
-            Debug.LogError("Failed to load color data.");
-        }
-    }
+  void LoadColors()
+  {
+      string filePath = Path.Combine(Application.dataPath, "Scripts/colors.json");
+      
+      if (System.IO.File.Exists(filePath))
+      {
+          string dataAsJson = System.IO.File.ReadAllText(filePath);
+          
+          ColorListWrapper colorListWrapper = JsonUtility.FromJson<ColorListWrapper>("{\"colors\":" + dataAsJson + "}");
+          
+          colorList = colorListWrapper.colors;
+      }
+      else
+      {
+          Debug.LogError("Failed to load color data.");
+      }
+  }
 
   void Update()
   {
+    // Display Area Size
     wallArea.text = wallPainter.paintAreaNeeded.ToString("F2") + " sq ft.";
 
+    // Display Color/Paint Selected
     Color currentColor = fcp.color;
 
     string hexColor = ColorUtility.ToHtmlStringRGB(currentColor);
+    // Display the Hex Color
     paintName.text = "#" + hexColor;
 
+    // Should match hex value with the ones in colors.json to retreive and display the paint name.
     bool matchFound = false;
     foreach (var colorData in colorList)
     {
@@ -68,6 +72,7 @@ public class MenuController : MonoBehaviour
       }
     }
 
+    // If the hex value is not one included in colors.json, display that to the user.
     if (!matchFound)
     {
       paintName.text = "No matching color found";
