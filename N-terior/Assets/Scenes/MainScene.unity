@@ -705,6 +705,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1092130523}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &72489903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 72489905}
+  - component: {fileID: 72489904}
+  m_Layer: 0
+  m_Name: floorContoller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &72489904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72489903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d86ba4cea46a44fa51eaa9a5db6da4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorMat: {fileID: 2100000, guid: b32183a9d6da0c047a9545ada1c1f05b, type: 2}
+--- !u!4 &72489905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72489903}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &73710738
 GameObject:
   m_ObjectHideFlags: 0
@@ -18053,15 +18098,15 @@ MonoBehaviour:
   PlanePrefab: {fileID: 1487010196}
   VolumePrefab: {fileID: 349648652}
   PrefabOverrides:
-  - Prefab: {fileID: -1369987960867358032, guid: a850c416eca100f4495e00a7099ec4fa,
+  - Prefab: {fileID: 7700874853730755300, guid: ca422d95da36ef94a8e470a893299232,
       type: 3}
     ClassificationLabel: WINDOW_FRAME
     _editorClassificationIndex: 6
-  - Prefab: {fileID: -1369987960867358032, guid: a850c416eca100f4495e00a7099ec4fa,
+  - Prefab: {fileID: 7700874853730755300, guid: ca422d95da36ef94a8e470a893299232,
       type: 3}
     ClassificationLabel: WALL_ART
     _editorClassificationIndex: 14
-  - Prefab: {fileID: -1369987960867358032, guid: a850c416eca100f4495e00a7099ec4fa,
+  - Prefab: {fileID: 7700874853730755300, guid: ca422d95da36ef94a8e470a893299232,
       type: 3}
     ClassificationLabel: DOOR_FRAME
     _editorClassificationIndex: 5
@@ -18069,6 +18114,18 @@ MonoBehaviour:
       type: 3}
     ClassificationLabel: BED
     _editorClassificationIndex: 9
+  - Prefab: {fileID: 1631740838091412639, guid: f4d9aa7f3938e394f9fdc3ca199bc796,
+      type: 3}
+    ClassificationLabel: TABLE
+    _editorClassificationIndex: 13
+  - Prefab: {fileID: 1631740838091412639, guid: f4d9aa7f3938e394f9fdc3ca199bc796,
+      type: 3}
+    ClassificationLabel: SCREEN
+    _editorClassificationIndex: 10
+  - Prefab: {fileID: 1631740838091412639, guid: f4d9aa7f3938e394f9fdc3ca199bc796,
+      type: 3}
+    ClassificationLabel: COUCH
+    _editorClassificationIndex: 4
   ActiveRoomsOnly: 1
   VerboseLogging: 0
   MaxSceneAnchorUpdatesPerFrame: 3
@@ -22137,3 +22194,4 @@ SceneRoots:
   - {fileID: 1597595748}
   - {fileID: 1036123734}
   - {fileID: 1784796650}
+  - {fileID: 72489905}

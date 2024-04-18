@@ -87,7 +87,6 @@ public class changeWallColor : MonoBehaviour
 
         if (ceiling != null)
         {
-            area += (ceiling.Width * ceiling.Height);
             foreach (var wall in walls)
             {
                 if (wall != null)
