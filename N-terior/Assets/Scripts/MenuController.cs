@@ -50,7 +50,7 @@ public class MenuController : MonoBehaviour
 
   void Update()
   {
-    wallArea.text = "Area Size: " + wallPainter.paintAreaNeeded.ToString("F2") + " sq ft.";
+    wallArea.text = wallPainter.paintAreaNeeded.ToString("F2") + " sq ft.";
 
     Color currentColor = fcp.color;
 
