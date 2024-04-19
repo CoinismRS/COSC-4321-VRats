@@ -5,6 +5,7 @@ using UnityEngine;
 public class LaserGenerator : MonoBehaviour
 {
     private LineRenderer lineRenderer;
+    private int reflectedWallsCounter = 0;
 
     void Start()
     {
@@ -27,8 +28,17 @@ public class LaserGenerator : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(raycastOrigin, raycastDirection, out hit))
         {
-            // If the raycast hits something, update the endpoint of the LineRenderer to the hit point
-            lineRenderer.SetPosition(1, hit.point);
+            if (hit.collider.CompareTag("Wall") && reflectedWallsCounter < 4)
+            {
+                Vector3 reflectionDirection = Vector3.Reflect(transform.forward, hit.normal);
+                transform.rotation = Quaternion.LookRotation(reflectionDirection);
+
+                // If the raycast hits something, update the endpoint of the LineRenderer to the hit point
+                lineRenderer.SetPosition(1, hit.point);
+
+                reflectedWallsCounter++;
+            }
+            
         }
         else
         {
