@@ -1,56 +1,136 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+
 
 public class LaserGenerator : MonoBehaviour
 {
-    private LineRenderer lineRenderer;
-    private int reflectedWallsCounter = 0;
+    private List<LineRenderer> lineSegments = new();
+    private bool linesShown = true;
 
-    void Start()
+    [SerializeField]
+    [Tooltip("The Scene Manager that will provide walls.")]
+    private OVRSceneManager sceneManager;
+
+    [SerializeField]
+    [Tooltip("The color of the laser.")]
+    private Color color = Color.white;
+
+    [SerializeField]
+    [Tooltip("The body of the laser.")]
+    private MeshRenderer body;
+
+    private void RegenerateLines()
     {
-        // Get the LineRenderer component attached to this GameObject
-        lineRenderer = GetComponent<LineRenderer>();
+        // Delete existing segments
+        for (int i = lineSegments.Count -1; i >=0 ; i--) 
+        {
+            GameObject.Destroy(lineSegments[i]);
+            lineSegments.RemoveAt(i);
+        }
+
+        // If there is no room loaded, nothing to do
+        if (sceneManager.RoomLayout == null)
+        {
+            return;
+        }
+
+        // Get all walls
+        var walls = sceneManager.RoomLayout.Walls;
+
+        // Loop through all walls
+        foreach (var wall in walls)
+        {
+            // Create line segment
+            LineRenderer segment = wall.AddComponent<LineRenderer>();
+
+            // Set left and right points
+            segment.SetPosition(0, new Vector3(-wall.Width / 2, wall.Height/2, 0));
+            segment.SetPosition(0, new Vector3(+wall.Width / 2, wall.Height / 2, 0));
+            
+            // Set the color
+            segment.startColor = color;
+            segment.endColor = color;
+
+            // Remember it
+            lineSegments.Add(segment);
+        }
+
+    }
+
+    private void UpdateSegmentPositions()
+    {
+        foreach (var segment in lineSegments)
+        {
+            // Get left and right positions
+            Vector3 left = segment.GetPosition(0);
+            Vector3 right = segment.GetPosition(1);
+
+            // Update height of line
+            left = new Vector3(left.x, this.gameObject.transform.position.y, left.z);
+            right = new Vector3(right.x, this.gameObject.transform.position.y, right.z);
+
+            // Update the segment
+            segment.SetPosition(0, left);
+            segment.SetPosition(1, right);
+        }
+    }
+
+    private void UpdateLineVisibility()
+    {
+        foreach (var segment in lineSegments)
+        {
+            segment.enabled = linesShown;
+        }
+    }
+
+    public void ShowLines()
+    {
+        linesShown = true;
+        UpdateLineVisibility();
+    }
+
+    public void HideLines()
+    {
+        linesShown = false;
+        UpdateLineVisibility();
+    }
+
+    public void ToggleLines()
+    {
+        linesShown = !linesShown;
+        UpdateLineVisibility();
+    }
+    private void Awake()
+    {
+        // Match laser color
+        body.material.color = color;
+
+        // Generate Lines
+        RegenerateLines();
     }
 
     void Update()
     {
-        // Get the position of the GameObject (the start position of the raycast)
-        Vector3 raycastOrigin = transform.position;
-
-        // Get the direction of the raycast (this can be adjusted based on your requirements)
-        Vector3 raycastDirection = transform.forward;
-
-        // Set the starting point of the LineRenderer to match the GameObject's position
-        lineRenderer.SetPosition(0, raycastOrigin);
-
-        // Perform the raycast
-        RaycastHit hit;
-        if (Physics.Raycast(raycastOrigin, raycastDirection, out hit))
+        if (linesShown)
         {
-            if (hit.collider.CompareTag("Wall") && reflectedWallsCounter < 4)
-            {
-                Vector3 reflectionDirection = Vector3.Reflect(transform.forward, hit.normal);
-                transform.rotation = Quaternion.LookRotation(reflectionDirection);
-
-                // If the raycast hits something, update the endpoint of the LineRenderer to the hit point
-                lineRenderer.SetPosition(1, hit.point);
-
-                reflectedWallsCounter++;
-            }
-            
+            UpdateSegmentPositions();
         }
-        else
+    }
+
+    private void Start()
+    {
+        // If no color specified, make it random
+        if (color ==  Color.white)
         {
-            // If the raycast doesn't hit anything, set a default endpoint (e.g., extend the ray to a maximum distance)
-            lineRenderer.SetPosition(1, raycastOrigin + raycastDirection * 100f); // Change 100f to your desired maximum distance
+            color = Random.ColorHSV();
         }
     }
 
     public void OnClick()
     {
-        // TODO: Allow the user to toggle laser on and off via click/pokeable
-        lineRenderer.enabled = !lineRenderer.enabled;
+        ToggleLines();
     }
     
 }
