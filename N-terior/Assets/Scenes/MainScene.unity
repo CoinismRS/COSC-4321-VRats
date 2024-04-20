@@ -734,7 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d86ba4cea46a44fa51eaa9a5db6da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorMat: {fileID: 0}
+  floorMat: {fileID: 2100000, guid: d7e1058704065634b8158d828d715b63, type: 2}
 --- !u!4 &72489905
 Transform:
   m_ObjectHideFlags: 0
@@ -18099,15 +18099,15 @@ MonoBehaviour:
   PlanePrefab: {fileID: 1487010196}
   VolumePrefab: {fileID: 349648652}
   PrefabOverrides:
-  - Prefab: {fileID: 7700874853730755300, guid: ca422d95da36ef94a8e470a893299232,
+  - Prefab: {fileID: -1369987960867358032, guid: a850c416eca100f4495e00a7099ec4fa,
       type: 3}
     ClassificationLabel: WINDOW_FRAME
     _editorClassificationIndex: 6
-  - Prefab: {fileID: 7700874853730755300, guid: ca422d95da36ef94a8e470a893299232,
+  - Prefab: {fileID: -1369987960867358032, guid: a850c416eca100f4495e00a7099ec4fa,
       type: 3}
     ClassificationLabel: WALL_ART
     _editorClassificationIndex: 14
-  - Prefab: {fileID: 7700874853730755300, guid: ca422d95da36ef94a8e470a893299232,
+  - Prefab: {fileID: -1369987960867358032, guid: a850c416eca100f4495e00a7099ec4fa,
       type: 3}
     ClassificationLabel: DOOR_FRAME
     _editorClassificationIndex: 5
@@ -18115,18 +18115,6 @@ MonoBehaviour:
       type: 3}
     ClassificationLabel: BED
     _editorClassificationIndex: 9
-  - Prefab: {fileID: 1631740838091412639, guid: f4d9aa7f3938e394f9fdc3ca199bc796,
-      type: 3}
-    ClassificationLabel: TABLE
-    _editorClassificationIndex: 13
-  - Prefab: {fileID: 1631740838091412639, guid: f4d9aa7f3938e394f9fdc3ca199bc796,
-      type: 3}
-    ClassificationLabel: SCREEN
-    _editorClassificationIndex: 10
-  - Prefab: {fileID: 1631740838091412639, guid: f4d9aa7f3938e394f9fdc3ca199bc796,
-      type: 3}
-    ClassificationLabel: COUCH
-    _editorClassificationIndex: 4
   ActiveRoomsOnly: 1
   VerboseLogging: 0
   MaxSceneAnchorUpdatesPerFrame: 3

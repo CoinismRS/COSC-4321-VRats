@@ -42,9 +42,10 @@ public class changeWallColor : MonoBehaviour
 
         if (room != null)
         {
+            var ceilingMaterial = ceiling.GetComponent<MeshRenderer>();
             if (fcp.color != Color.clear)
             {
-                wallMat.color = fcp.color;
+                /*wallMat.color = fcp.color;
                 if (wallIndex >= walls.Length)
                 {
                     ceilingMat.color = fcp.color;
@@ -52,22 +53,22 @@ public class changeWallColor : MonoBehaviour
                 else
                 {
                     wallMat.color = fcp.color;
-                }
+                }*/
 
                 //Commented code is still needed for later use probably don't delete
-                //ceilingMaterial.enabled = true;
-                //ceilingMaterial.material = wallMat;
+                ceilingMaterial.enabled = true;
+                ceilingMaterial.material = wallMat;
 
-                /*foreach (var wall in walls)
+                foreach (var wall in walls)
                 {
                     var wallMaterial = wall.GetComponent<MeshRenderer>();
                     wallMaterial.enabled = true;
                     wallMaterial.material = wallMat;
-                }*/
-                
-                changeSingleWallColor(wallIndex);
-                fcp.color = Color.clear;
-                
+                }
+
+                /*changeSingleWallColor(wallIndex);
+                fcp.color = Color.clear;*/
+
 
             } 
         } 
