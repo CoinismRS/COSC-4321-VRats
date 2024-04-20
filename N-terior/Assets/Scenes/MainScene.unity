@@ -734,7 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d86ba4cea46a44fa51eaa9a5db6da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorMat: {fileID: 2100000, guid: b32183a9d6da0c047a9545ada1c1f05b, type: 2}
+  floorMat: {fileID: 0}
 --- !u!4 &72489905
 Transform:
   m_ObjectHideFlags: 0
@@ -16956,7 +16956,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallMat: {fileID: 2100000, guid: d7e1058704065634b8158d828d715b63, type: 2}
-  floorMat: {fileID: 2100000, guid: b32183a9d6da0c047a9545ada1c1f05b, type: 2}
+  ceilingMat: {fileID: 2100000, guid: b32183a9d6da0c047a9545ada1c1f05b, type: 2}
+  wallIndex: 0
   fcp: {fileID: 1285808171}
   paintAreaNeeded: 0
 --- !u!4 &1597595748
