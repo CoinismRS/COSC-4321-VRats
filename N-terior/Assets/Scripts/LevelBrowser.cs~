@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class LevelBrowser : MonoBehaviour
+{
+    public GameObject buttonPrefab;
+    public GameObject buttonParent;
+
+    private void OnEnable()
+    {
+        for (int i = 0; i < GameManager.Instance.levelCounts[GameManager.Instance.currentWorld - 1]; i++)
+        {
+            GameObject newButton = Instantiate(buttonPrefab, buttonParent.transform);
+            int levelNum = i + 1;
+            newButton.GetComponent<LevelButton>().levelText.text = (i + 1).ToString();
+            newButton.GetComponent<Button>().onClick.AddListener(() => SelectLevel(GameManager.Instance.currentWorld, levelNum));
+        }
+    }
+
+    private void SelectLevel(int world, int level)
+    {
+        Debug.Log("Loaded level" + world + " - " + level);
+    }
+}
