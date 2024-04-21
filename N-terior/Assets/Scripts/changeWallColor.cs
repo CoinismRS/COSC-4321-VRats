@@ -60,7 +60,7 @@ public class changeWallColor : MonoBehaviour
     }
 
     
-    private void UpdateWallColors()
+    public void UpdateWallColors()
     {
         if (room != null)
         {
