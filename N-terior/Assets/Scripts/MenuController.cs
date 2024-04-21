@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -8,88 +6,66 @@ using System.IO;
 
 public class MenuController : MonoBehaviour
 {
-  public FlexibleColorPicker fcp;
-  public TextMeshProUGUI paintName;
-  public TextMeshProUGUI wallArea;
-  public changeWallColor wallPainter;
-  
-  private List<ColorData> colorList;
+    public TextMeshProUGUI paintName;
+    public TextMeshProUGUI wallArea;
+    public Material wallMat; // Ensure this is assigned via the Inspector or elsewhere in your code.
+    public changeWallColor wallPainter; // Ensure this is assigned via the Inspector or elsewhere in your code.
+    
+    private ColorList colorList; // Using ColorList from ColorInfo.cs
 
-  void Start()
-  {
-    LoadColors();
-  }
-
-  public void StartBtn()
-  {
-    SceneManager.LoadScene("MainScene");
-  }
-
-  public void ExitBtn()
-  {
-    Application.Quit();
-  }
-
-  void LoadColors()
-  {
-      string filePath = Path.Combine(Application.dataPath, "Scripts/colors.json");
-      
-      if (System.IO.File.Exists(filePath))
-      {
-          string dataAsJson = System.IO.File.ReadAllText(filePath);
-          
-          ColorListWrapper colorListWrapper = JsonUtility.FromJson<ColorListWrapper>("{\"colors\":" + dataAsJson + "}");
-          
-          colorList = colorListWrapper.colors;
-      }
-      else
-      {
-          Debug.LogError("Failed to load color data.");
-      }
-  }
-
-  void Update()
-  {
-    // Display Area Size
-    wallArea.text = wallPainter.paintAreaNeeded.ToString("F2") + " sq ft.";
-
-    // Display Color/Paint Selected
-    Color currentColor = fcp.color;
-
-    string hexColor = ColorUtility.ToHtmlStringRGB(currentColor);
-    // Display the Hex Color
-    paintName.text = "#" + hexColor;
-
-    // Should match hex value with the ones in colors.json to retreive and display the paint name.
-    bool matchFound = false;
-    foreach (var colorData in colorList)
+    void Start()
     {
-      if (colorData.hex.Equals(hexColor, StringComparison.OrdinalIgnoreCase))
-      {
-        paintName.text = colorData.name;
-        matchFound = true;
-        break;
-      }
+        LoadColors();
     }
 
-    // If the hex value is not one included in colors.json, display that to the user.
-    if (!matchFound)
+    public void StartBtn()
     {
-      paintName.text = "No matching color found";
+        SceneManager.LoadScene("MainScene");
     }
 
-  }
+    public void ExitBtn()
+    {
+        Application.Quit();
+    }
 
-  [System.Serializable]
-  public class ColorData
-  {
-    public string name;
-    public string hex;
-  }
+    void LoadColors()
+    {
+        string filePath = Path.Combine(Application.dataPath, "Resources/colors.json");
+        
+        if (File.Exists(filePath))
+        {
+            string dataAsJson = File.ReadAllText(filePath);
+            // colorList = JsonUtility.FromJson<ColorList>(dataAsJson);
+            colorList = JsonUtility.FromJson<ColorList>("{\"colors\":" + dataAsJson + "}");
 
-  [System.Serializable]
-  public class ColorListWrapper
-  {
-    public List<ColorData> colors;
-  }
+        }
+        else
+        {
+            Debug.LogError("Failed to load color data.");
+        }
+    }
+
+    public void UpdateSelectedColor(ColorInfo colorInfo)
+    {
+        paintName.text = colorInfo.name;
+        wallArea.text = "Price: $" + colorInfo.price.ToString("F2") + " / gallon";
+        
+        // Update the wall color
+        wallMat.color = HexToColor(colorInfo.hex);
+        wallPainter.UpdateWallColors(); // Assuming UpdateWallColors() is a method in wallPainter that applies the color
+    }
+
+    private Color HexToColor(string hex)
+    {
+        // Your existing HexToColor method.
+        hex = hex.Replace("#", "");
+        byte r = byte.Parse(hex.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+        byte g = byte.Parse(hex.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+        byte b = byte.Parse(hex.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+        return new Color32(r, g, b, 255);
+    }
+
+    // If there is any other code you need in this file, it would go here.
+
+    // Removed the Update method entirely since we're handling color updates through event subscription now.
 }
