@@ -45,8 +45,8 @@ public class changeWallColor : MonoBehaviour
             var ceilingMaterial = ceiling.GetComponent<MeshRenderer>();
             if (fcp.color != Color.clear)
             {
-                /*wallMat.color = fcp.color;
-                if (wallIndex >= walls.Length)
+                wallMat.color = fcp.color;
+                /*if (wallIndex >= walls.Length)
                 {
                     ceilingMat.color = fcp.color;
                 }

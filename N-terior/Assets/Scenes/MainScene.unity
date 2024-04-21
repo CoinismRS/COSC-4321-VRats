@@ -18111,10 +18111,6 @@ MonoBehaviour:
       type: 3}
     ClassificationLabel: DOOR_FRAME
     _editorClassificationIndex: 5
-  - Prefab: {fileID: 1631740838091412639, guid: f4d9aa7f3938e394f9fdc3ca199bc796,
-      type: 3}
-    ClassificationLabel: BED
-    _editorClassificationIndex: 9
   ActiveRoomsOnly: 1
   VerboseLogging: 0
   MaxSceneAnchorUpdatesPerFrame: 3
