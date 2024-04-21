@@ -18,7 +18,7 @@ public class changeWallColor : MonoBehaviour
     public Material wallMat;
     public Material floorMat;
     
-    public FlexibleColorPicker fcp;
+    // public FlexibleColorPicker fcp;
     private List<double> wallStuffsArea = new List<double>();
     private GameObject roomModel;
     public double paintAreaNeeded;
@@ -26,40 +26,87 @@ public class changeWallColor : MonoBehaviour
     private void Awake()
     {
         oVRSceneManager = FindObjectOfType<OVRSceneManager>();
-        oVRSceneManager.SceneModelLoadedSuccessfully += SceneLoaded;
-        fcp.color = Color.clear;
+        if (oVRSceneManager != null)
+        {
+            oVRSceneManager.SceneModelLoadedSuccessfully += SceneLoaded;
+        }
+        else
+        {
+            Debug.LogError("OVRSceneManager not found in the scene.");
+        }
+    }
+    
+    // Start is called before the first frame update
+    private void Start()
+    {
+        // Subscribe to the OnColorSelected event of the ColorLoader
+        ColorLoader colorLoader = FindObjectOfType<ColorLoader>();
+        if(colorLoader != null)
+        {
+            colorLoader.OnColorSelected += ChangeWallMaterialColor;
+        }
+        else
+        {
+            Debug.LogError("ColorLoader not found in the scene!");
+        }
+    }
+    
+    private void ChangeWallMaterialColor(Color newColor)
+    {
+        // Change the wall material to the new color
+        wallMat.color = newColor;
+        // Apply the updated color to the walls
+        UpdateWallColors();
     }
 
-    private void Update()
+    
+    private void UpdateWallColors()
     {
-        if (paintAreaNeeded == 0)
-        {
-            var totalArea = getAreaOfRoom();
-            var areaDeductions = getWallStuffsArea();
-            paintAreaNeeded = totalArea - areaDeductions;
-      
-        }
-
         if (room != null)
         {
             var ceilingMaterial = ceiling.GetComponent<MeshRenderer>();
+            ceilingMaterial.enabled = true;
+            ceilingMaterial.material = wallMat;
 
-            if (fcp.color != Color.clear)
+            foreach (var wall in walls)
             {
-                wallMat.color = fcp.color;
-
-                ceilingMaterial.enabled = true;
-                ceilingMaterial.material = wallMat;
-                
-                foreach (var wall in walls)
-                {
-                    var wallMaterial = wall.GetComponent<MeshRenderer>();
-                    wallMaterial.enabled = true;
-                    wallMaterial.material = wallMat;
-                }
-            } 
-        } 
+                var wallMaterial = wall.GetComponent<MeshRenderer>();
+                wallMaterial.enabled = true;
+                wallMaterial.material = wallMat;
+            }
+        }
     }
+    
+    // private void Update()
+    // {
+    //     if (paintAreaNeeded == 0)
+    //     {
+    //         var totalArea = getAreaOfRoom();
+    //         var areaDeductions = getWallStuffsArea();
+    //         paintAreaNeeded = totalArea - areaDeductions;
+    //   
+    //     }
+    //
+    //     if (room != null)
+    //     {
+    //         var ceilingMaterial = ceiling.GetComponent<MeshRenderer>();
+    //
+    //         if (fcp.color != Color.clear)
+    //         {
+    //             wallMat.color = fcp.color;
+    //
+    //             ceilingMaterial.enabled = true;
+    //             ceilingMaterial.material = wallMat;
+    //             
+    //             foreach (var wall in walls)
+    //             {
+    //                 var wallMaterial = wall.GetComponent<MeshRenderer>();
+    //                 wallMaterial.enabled = true;
+    //                 wallMaterial.material = wallMat;
+    //             }
+    //         } 
+    //     } 
+    // }
 
     public void SceneLoaded()
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.IO;
 using System.Net;
+using Random = UnityEngine.Random;
 
 public class ColorLoader : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class ColorLoader : MonoBehaviour
     public GameObject colorItemPrefab;
     public Text priceTextPrefab;
     public Transform contentPanel;
+    public event Action<Color> OnColorSelected;
+
 
     void Start()
     {
@@ -98,6 +102,12 @@ public class ColorLoader : MonoBehaviour
             // Set its color based on the hex value.
             Image background = newItem.GetComponentInChildren<Image>();
             background.color = HexToColor(color.hex);
+            
+            Button buttonComponent = newItem.GetComponent<Button>();
+            Color colorValue = HexToColor(color.hex);
+            buttonComponent.onClick.AddListener(() => {
+                OnColorSelected?.Invoke(colorValue);
+            });
         }
     }
 }
