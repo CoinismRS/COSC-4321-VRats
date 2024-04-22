@@ -5,10 +5,11 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.IO;
 using System.Net;
+using UnityEditor;
 
 public class ColorLoader : MonoBehaviour
 {
-    private const string localhostUrl = "http://localhost:8080/"; // Replace 3000 with your server's port
+    private const string localhostUrl = "http://20.84.56.123:8080/"; // Replace 3000 with your server's port
     private const string getColorUrl = localhostUrl + "colors"; // Example GET endpoint
     public GameObject colorItemPrefab;
     public Text priceTextPrefab;
@@ -21,10 +22,9 @@ public class ColorLoader : MonoBehaviour
 
     void LoadColors()
     {
+        ServicePointManager.ServerCertificateValidationCallback = (a, b, c, d) => true;
         // Create a UnityWebRequest object to make the HTTP request
         UnityWebRequest www = UnityWebRequest.Get(getColorUrl);
-
-        // Send the request asynchronously
         StartCoroutine(SendWebRequest(www));
     }
 
