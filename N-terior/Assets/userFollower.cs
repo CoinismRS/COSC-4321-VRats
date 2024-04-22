@@ -64,6 +64,6 @@ public class userFollower : MonoBehaviour
     private bool ReachedPosition(Vector3 targetPosition)
     {
         
-        return Vector3.Distance(targetPosition, transform.position) < 0.5f;
+        return Vector3.Distance(targetPosition, transform.position) < 0.1f;
     }
 }
