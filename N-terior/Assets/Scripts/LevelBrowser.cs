@@ -1,3 +1,4 @@
+using Normal.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,9 +7,24 @@ public class LevelBrowser : MonoBehaviour
     public GameObject buttonPrefab;
     public Transform buttonParent; // It's better to use Transform here
     public changeWallColor wallChanger; // Reference to the changeWallColor script
+    private OVRSceneRoom Help;
+    private OVRScenePlane [] FHelp;
+    private OVRSceneManager oVRSceneManager;
+
+
+
+    private void Helper()
+    {
+        Help = FindObjectOfType<OVRSceneRoom>();
+        FHelp = Help.Walls;
+    }
+
 
     private void OnEnable()
     {
+        oVRSceneManager = FindObjectOfType<OVRSceneManager>();
+        oVRSceneManager.SceneModelLoadedSuccessfully += Helper;
+
         // Clear existing buttons to avoid duplicates
         foreach (Transform child in buttonParent)
         {
@@ -23,7 +39,7 @@ public class LevelBrowser : MonoBehaviour
         }
 
         // Assuming wallChanger is not null from here on
-        for (int i = 0; i < wallChanger.walls.Length+1; i++)
+        for (int i = 0; i < FHelp.Length+1; i++)
         {
       
             GameObject newButton = Instantiate(buttonPrefab, buttonParent);
