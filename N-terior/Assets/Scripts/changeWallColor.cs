@@ -12,8 +12,8 @@ public class changeWallColor : MonoBehaviour
 {
     private OVRSceneManager oVRSceneManager;
     private OVRSceneRoom room;
-    private OVRScenePlane[] walls;
-    private OVRScenePlane ceiling;
+    public OVRScenePlane[] walls;
+    public OVRScenePlane ceiling;
 
     public Material wallMat;
     public Material ceilingMat;

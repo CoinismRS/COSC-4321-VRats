@@ -23,8 +23,9 @@ public class LevelBrowser : MonoBehaviour
         }
 
         // Assuming wallChanger is not null from here on
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < wallChanger.walls.Length+1; i++)
         {
+      
             GameObject newButton = Instantiate(buttonPrefab, buttonParent);
             int levelNum = i + 1; // This is your wall index
 
