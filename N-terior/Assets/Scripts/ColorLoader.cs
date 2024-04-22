@@ -10,8 +10,8 @@ using Random = UnityEngine.Random;
 
 public class ColorLoader : MonoBehaviour
 {
-    // private const string localhostUrl = "http://localhost:8080/"; // Replace 3000 with your server's port
-    // private const string getColorUrl = localhostUrl + "colors"; // Example GET endpoint
+    private const string localhostUrl = "http://20.84.56.123:8080/";
+    private const string getColorUrl = localhostUrl + "colors"; // Example GET endpoint
     public GameObject colorItemPrefab;
     public Text priceTextPrefab;
     public Transform contentPanel;
@@ -23,7 +23,7 @@ public class ColorLoader : MonoBehaviour
         LoadColors();
     }
 
-    
+    /*
     void LoadColors()
     {
         string filePath = Path.Combine(Application.dataPath, "Resources/colors.json");
@@ -44,40 +44,43 @@ public class ColorLoader : MonoBehaviour
             Debug.LogError("Cannot load color data!");
         }
     }
-    // void LoadColors()
-    // {
-    //     // Create a UnityWebRequest object to make the HTTP request
-    //     UnityWebRequest www = UnityWebRequest.Get(getColorUrl);
-    //
-    //     // Send the request asynchronously
-    //     StartCoroutine(SendWebRequest(www));
-    // }
+    */
+
+    void LoadColors()
+    {
+        // Create a UnityWebRequest object to make the HTTP request
+        UnityWebRequest www = UnityWebRequest.Get(getColorUrl);
+
+        // Send the request asynchronously
+        StartCoroutine(SendWebRequest(www));
+    }
 
     // Loads the color data from the colors.json file.
-    // IEnumerator SendWebRequest(UnityWebRequest www)
-    // {
-    //     // Send the request and wait for the response
-    //     yield return www.SendWebRequest();
-    //
-    //     // Check if there were any errors
-    //     if (www.result != UnityWebRequest.Result.Success)
-    //     {
-    //         // Log the error if the request fails
-    //         Debug.LogError("Failed to load color data: " + www.error);
-    //     }
-    //     else
-    //     {
-    //         // Extract JSON data from the response
-    //         string dataAsJson = www.downloadHandler.text;
-    //         
-    //         // Deserialize the JSON to the ColorList object
-    //         ColorList colorList = JsonUtility.FromJson<ColorList>(dataAsJson);
-    //         Debug.Log(colorList);
-    //         
-    //         // Populate UI with the deserialized color data
-    //         PopulateUI(colorList);
-    //     }
-    // }
+    IEnumerator SendWebRequest(UnityWebRequest www)
+    {
+        // Send the request and wait for the response
+        yield return www.SendWebRequest();
+
+        // Check if there were any errors
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            // Log the error if the request fails
+            Debug.LogError("Failed to load color data: " + www.error);
+        }
+        else
+        {
+            // Extract JSON data from the response
+            string dataAsJson = www.downloadHandler.text;
+
+            // Deserialize the JSON to the ColorList object
+            ColorList colorList = JsonUtility.FromJson<ColorList>(dataAsJson);
+            Debug.Log(colorList);
+
+            // Populate UI with the deserialized color data
+            PopulateUI(colorList);
+        }
+    }
+
 
 
     // Converts a hex color string to a color object
