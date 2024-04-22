@@ -1734,7 +1734,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Vintage Tiles
+  m_text: Wooden Floor
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 23bb92df1ad5f7f419ecdc502ba82311, type: 2}
   m_sharedMaterial: {fileID: -1098779281287830357, guid: 23bb92df1ad5f7f419ecdc502ba82311,
@@ -6780,7 +6780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7248843940351485016
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7178,7 +7178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6943648075402485451
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7435,7 +7435,7 @@ GameObject:
   - component: {fileID: 1357639788889356171}
   - component: {fileID: 7695004699421738296}
   m_Layer: 0
-  m_Name: Tiles_txt
+  m_Name: Planks_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7488,7 +7488,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tiles
+  m_text: Planks
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 23bb92df1ad5f7f419ecdc502ba82311, type: 2}
   m_sharedMaterial: {fileID: -1098779281287830357, guid: 23bb92df1ad5f7f419ecdc502ba82311,
@@ -7920,7 +7920,7 @@ GameObject:
   - component: {fileID: 7808766408896179127}
   - component: {fileID: 4814651327450042124}
   m_Layer: 0
-  m_Name: Vintage_tile_btn
+  m_Name: Wooden_floor_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
