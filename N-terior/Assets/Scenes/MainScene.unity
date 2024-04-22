@@ -18998,6 +18998,10 @@ MonoBehaviour:
       type: 3}
     ClassificationLabel: DOOR_FRAME
     _editorClassificationIndex: 5
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: OTHER
+    _editorClassificationIndex: 7
   ActiveRoomsOnly: 1
   VerboseLogging: 0
   MaxSceneAnchorUpdatesPerFrame: 3
@@ -21089,7 +21093,7 @@ GameObject:
   - component: {fileID: 1934556572}
   m_Layer: 0
   m_Name: RightEyeAnchor
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

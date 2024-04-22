@@ -38,15 +38,17 @@ public class userFollower : MonoBehaviour
 
         if (!isCentered)
         {
-            
+
             Vector3 targetPosition = FindTargetPosition();
 
             MoveTowards(targetPosition);
 
             if (ReachedPosition(targetPosition))
                 isCentered = true;
-               
+
+
         }
+
     }
 
     private Vector3 FindTargetPosition()
@@ -62,6 +64,6 @@ public class userFollower : MonoBehaviour
     private bool ReachedPosition(Vector3 targetPosition)
     {
         
-        return Vector3.Distance(targetPosition, transform.position) < 0.1f;
+        return Vector3.Distance(targetPosition, transform.position) < 0.5f;
     }
 }
