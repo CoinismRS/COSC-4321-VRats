@@ -16608,12 +16608,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487010195}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4b13589911d00d49bb8395c49568d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _occlusionType: 1
+  _occlusionType: 2
 --- !u!114 &1487010202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16621,7 +16621,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487010195}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ddd9160392010594198e19590e3e2244, type: 3}
   m_Name: 
@@ -19016,18 +19016,27 @@ MonoBehaviour:
   PlanePrefab: {fileID: 1487010196}
   VolumePrefab: {fileID: 349648652}
   PrefabOverrides:
-  - Prefab: {fileID: 0}
+  - Prefab: {fileID: 790497648648507781, guid: 351c040c41066ad46a6fbe0950d81d7a, type: 3}
     ClassificationLabel: WINDOW_FRAME
     _editorClassificationIndex: 6
-  - Prefab: {fileID: 0}
+  - Prefab: {fileID: 790497648648507781, guid: 351c040c41066ad46a6fbe0950d81d7a, type: 3}
     ClassificationLabel: WALL_ART
     _editorClassificationIndex: 14
-  - Prefab: {fileID: 0}
+  - Prefab: {fileID: 790497648648507781, guid: 351c040c41066ad46a6fbe0950d81d7a, type: 3}
     ClassificationLabel: DOOR_FRAME
     _editorClassificationIndex: 5
-  - Prefab: {fileID: 0}
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
     ClassificationLabel: OTHER
     _editorClassificationIndex: 7
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: TABLE
+    _editorClassificationIndex: 13
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: SCREEN
+    _editorClassificationIndex: 10
   ActiveRoomsOnly: 1
   VerboseLogging: 0
   MaxSceneAnchorUpdatesPerFrame: 3
