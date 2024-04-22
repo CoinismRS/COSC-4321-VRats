@@ -15081,11 +15081,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookAt: {fileID: 1016173103}
-  transformToFollow: {fileID: 0}
   followSpeed: 3
   cameraTransform: {fileID: 1016173103}
   distance: 0.5
-  mr: {fileID: 1348446292}
 --- !u!23 &1348446292
 MeshRenderer:
   m_ObjectHideFlags: 0
