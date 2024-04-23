@@ -15081,11 +15081,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookAt: {fileID: 1016173103}
-  transformToFollow: {fileID: 0}
   followSpeed: 3
   cameraTransform: {fileID: 1016173103}
   distance: 0.5
-  mr: {fileID: 1348446292}
 --- !u!23 &1348446292
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16504,6 +16502,8 @@ GameObject:
   - component: {fileID: 1487010199}
   - component: {fileID: 1487010198}
   - component: {fileID: 1487010197}
+  - component: {fileID: 1487010202}
+  - component: {fileID: 1487010201}
   m_Layer: 9
   m_Name: PlaneMesh
   m_TagString: Untagged
@@ -16601,6 +16601,34 @@ Transform:
   - {fileID: 581610895}
   m_Father: {fileID: 1723242747}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1487010201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487010195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b13589911d00d49bb8395c49568d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _occlusionType: 2
+--- !u!114 &1487010202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487010195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd9160392010594198e19590e3e2244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enable6DoFCalculations: 1
+  Enable3DoFCalculations: 0
+  _customTrackingSpaceTransform: {fileID: 0}
 --- !u!1 &1492878012
 GameObject:
   m_ObjectHideFlags: 0
@@ -18988,18 +19016,51 @@ MonoBehaviour:
   PlanePrefab: {fileID: 1487010196}
   VolumePrefab: {fileID: 349648652}
   PrefabOverrides:
-  - Prefab: {fileID: -1369987960867358032, guid: a850c416eca100f4495e00a7099ec4fa,
-      type: 3}
+  - Prefab: {fileID: 790497648648507781, guid: 351c040c41066ad46a6fbe0950d81d7a, type: 3}
     ClassificationLabel: WINDOW_FRAME
     _editorClassificationIndex: 6
-  - Prefab: {fileID: -1369987960867358032, guid: a850c416eca100f4495e00a7099ec4fa,
-      type: 3}
+  - Prefab: {fileID: 790497648648507781, guid: 351c040c41066ad46a6fbe0950d81d7a, type: 3}
     ClassificationLabel: WALL_ART
     _editorClassificationIndex: 14
-  - Prefab: {fileID: -1369987960867358032, guid: a850c416eca100f4495e00a7099ec4fa,
-      type: 3}
+  - Prefab: {fileID: 790497648648507781, guid: 351c040c41066ad46a6fbe0950d81d7a, type: 3}
     ClassificationLabel: DOOR_FRAME
     _editorClassificationIndex: 5
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: OTHER
+    _editorClassificationIndex: 7
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: TABLE
+    _editorClassificationIndex: 13
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: SCREEN
+    _editorClassificationIndex: 10
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: PLANT
+    _editorClassificationIndex: 12
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: STORAGE
+    _editorClassificationIndex: 8
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: COUCH
+    _editorClassificationIndex: 4
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: DESK
+    _editorClassificationIndex: 3
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: BED
+    _editorClassificationIndex: 9
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: LAMP
+    _editorClassificationIndex: 11
   ActiveRoomsOnly: 1
   VerboseLogging: 0
   MaxSceneAnchorUpdatesPerFrame: 3
@@ -21091,7 +21152,7 @@ GameObject:
   - component: {fileID: 1934556572}
   m_Layer: 0
   m_Name: RightEyeAnchor
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
