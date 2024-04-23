@@ -141,5 +141,23 @@ public class changeWallColor : MonoBehaviour
         wallMaterial.material.color = color;//wallMat.color;
     }
 
+    public void ResetWallColor(int wallIndex)
+    {
+        if (wallIndex < 0 || wallIndex >= walls.Length)
+        {
+            // Out of range, handle error or ignore
+            return;
+        }
+
+        // Change the color of the wall to the default color or material
+        var wallMaterial = walls[wallIndex].GetComponent<MeshRenderer>();
+        if (wallMaterial != null)
+        {
+            wallMaterial.enabled = false; // Assuming 'enabled' means visible in this context
+            //wallMaterial.material = defaultWallMat; // Use the default material
+            //wallMaterial.material.color = defaultColor; // Or just change the color
+        }
+    }
+
 
 }

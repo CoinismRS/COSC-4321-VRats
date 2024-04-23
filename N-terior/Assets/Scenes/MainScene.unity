@@ -6784,7 +6784,7 @@ MonoBehaviour:
   buttonPrefab: {fileID: 1946164599259608437, guid: 5e98f95ffba187b4692ac4bec5a5a943,
     type: 3}
   buttonParent: {fileID: 810053600}
-  wallChanger: {fileID: 0}
+  wallChanger: {fileID: 1597595747}
 --- !u!114 &547268812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18792,7 +18792,7 @@ Transform:
   m_GameObject: {fileID: 1420031806}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.067, y: 1.8160001, z: 0.44099998}
+  m_LocalPosition: {x: -0.067, y: 1.8160001, z: 0.157}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
