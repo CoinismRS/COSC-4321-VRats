@@ -66,7 +66,7 @@ public class changeWallColor : MonoBehaviour
                      wallMaterial.material = wallMat;
                  }*/
 
-                changeSingleWallColor(wallIndex);
+                changeSingleWallColor(wallIndex, fcp.color);
                 fcp.color = Color.clear;
 
 
@@ -122,14 +122,14 @@ public class changeWallColor : MonoBehaviour
         return area;
     }
 
-    public void changeSingleWallColor(int wallIndex)
+    public void changeSingleWallColor(int wallIndex, Color color)
     {
         if (wallIndex >= walls.Length)
         {
             var ceilingMaterial = ceiling.GetComponent<MeshRenderer>();
             ceilingMaterial.enabled = true;
             ceilingMaterial.material = ceilingMat;
-            ceilingMaterial.material.color = ceilingMat.color;
+            ceilingMaterial.material.color = color;//ceilingMat.color;
             return;
         }
 
@@ -138,7 +138,7 @@ public class changeWallColor : MonoBehaviour
         var wallMaterial = wall.GetComponent<MeshRenderer>();
         wallMaterial.enabled = true;
         wallMaterial.material = wallMat;
-        wallMaterial.material.color = wallMat.color;
+        wallMaterial.material.color = color;//wallMat.color;
     }
 
 

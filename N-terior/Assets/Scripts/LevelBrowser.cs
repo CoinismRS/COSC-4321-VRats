@@ -1,4 +1,3 @@
-using Normal.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,68 +6,95 @@ public class LevelBrowser : MonoBehaviour
     public GameObject buttonPrefab;
     public Transform buttonParent; // It's better to use Transform here
     public changeWallColor wallChanger; // Reference to the changeWallColor script
-    private OVRSceneRoom Help;
-    private OVRScenePlane [] FHelp;
     private OVRSceneManager oVRSceneManager;
 
-
+    private void Awake()
+    {
+        oVRSceneManager = FindObjectOfType<OVRSceneManager>();
+        if (oVRSceneManager != null)
+        {
+            oVRSceneManager.SceneModelLoadedSuccessfully += Helper;
+        }
+        else
+        {
+            Debug.LogError("OVRSceneManager not found in the scene.");
+        }
+    }
 
     private void Helper()
     {
-        Help = FindObjectOfType<OVRSceneRoom>();
-        FHelp = Help.Walls;
+        OVRSceneRoom room = FindObjectOfType<OVRSceneRoom>();
+        if (room != null)
+        {
+            CreateButtons(room.Walls);
+        }
+        else
+        {
+            Debug.LogError("OVRSceneRoom not found in the scene.");
+        }
     }
-
 
     private void OnEnable()
     {
-        oVRSceneManager = FindObjectOfType<OVRSceneManager>();
-        oVRSceneManager.SceneModelLoadedSuccessfully += Helper;
+        // Ensure wallChanger is assigned
+        if (wallChanger == null)
+        {
+            // Find the changeWallColor script in the scene
+            wallChanger = FindObjectOfType<changeWallColor>();
+            if (wallChanger == null)
+            {
+                Debug.LogError("changeWallColor script not found in the scene.");
+                return;
+            }
+        }
 
+        // Assuming Helper will be called when the scene is loaded
+        // and buttons will be created in CreateButtons method
+    }
+
+    private void CreateButtons(OVRScenePlane[] walls)
+    {
         // Clear existing buttons to avoid duplicates
         foreach (Transform child in buttonParent)
         {
             Destroy(child.gameObject);
         }
 
-        // Make sure wallChanger is assigned
-        if (wallChanger == null)
+        Debug.Log("Length" + walls.Length);
+        // Create buttons based on the number of walls
+        for (int i = 0; i < walls.Length; i++)
         {
-            // Find the changeWallColor script in the scene
-            wallChanger = FindObjectOfType<changeWallColor>();
-        }
-
-        // Assuming wallChanger is not null from here on
-        for (int i = 0; i < FHelp.Length+1; i++)
-        {
-      
             GameObject newButton = Instantiate(buttonPrefab, buttonParent);
-            int levelNum = i + 1; // This is your wall index
+            int wallIndex = i; // Array is 0-indexed
 
             // Set the button text
             LevelButton levelButton = newButton.GetComponent<LevelButton>();
             if (levelButton != null && levelButton.levelText != null)
             {
-                levelButton.levelText.text = "Wall " + levelNum;
+                levelButton.levelText.text = "Wall " + (wallIndex + 1);
             }
 
             // Add the onClick listener
-            newButton.GetComponent<Button>().onClick.AddListener(() => SelectLevel(levelNum));
+            newButton.GetComponent<Button>().onClick.AddListener(() => SelectWall(wallIndex));
         }
     }
 
-    private void SelectLevel(int levelNum)
+    private void SelectWall(int wallIndex)
     {
         // Log for debug purposes
-        Debug.Log("Change color of wall: " + levelNum);
+        Debug.Log("Selected wall with index: " + wallIndex);
 
-        // If wallChanger is set, change the wall color
+        // If wallChanger is set, instruct it to change the wall color
         if (wallChanger != null)
         {
-            wallChanger.changeSingleWallColor(levelNum - 1); // Subtract 1 because arrays are 0-indexed
+            wallChanger.changeSingleWallColor(wallIndex, Color.red); // Use the index directly
         }
     }
 }
+
+
+
+
 
 
 
