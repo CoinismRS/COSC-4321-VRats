@@ -82,8 +82,9 @@ public class LevelBrowser : MonoBehaviour
             WallButton wallButton = newButton.AddComponent<WallButton>();
             wallButton.Setup(colorToApply, wallChanger, wallIndex);
         }
+    }
 
-        private void SelectWall(int wallIndex)
+    private void SelectWall(int wallIndex)
     {
         // Log for debug purposes
         Debug.Log("Selected wall with index: " + wallIndex);
