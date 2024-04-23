@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "com.meta.movement": "https://github.com/oculus-samples/Unity-Movement.git",
+    "com.meta.xr.depthapi": "https://github.com/oculus-samples/Unity-DepthAPI.git?path=/Packages/com.meta.xr.depthapi",
+    "com.meta.xr.depthapi.urp": "https://github.com/oculus-samples/Unity-DepthAPI.git?path=/Packages/com.meta.xr.depthapi.urp",
     "com.meta.xr.sdk.all": "63.0.0",
     "com.normalvr.normcore": "2.9.5",
     "com.solersoft.mrmusk": "https://github.com/SolerSoft/mr-musk.git?path=/Assets/Packages/com.solersoft.mrmusk",

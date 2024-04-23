@@ -24,7 +24,6 @@ public class floorChanger : MonoBehaviour
         floorMat = newMaterial;
     }
 
-
     private void Update()
     {
         if (room != null)
