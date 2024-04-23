@@ -19037,6 +19037,30 @@ MonoBehaviour:
       type: 3}
     ClassificationLabel: SCREEN
     _editorClassificationIndex: 10
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: PLANT
+    _editorClassificationIndex: 12
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: STORAGE
+    _editorClassificationIndex: 8
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: COUCH
+    _editorClassificationIndex: 4
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: DESK
+    _editorClassificationIndex: 3
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: BED
+    _editorClassificationIndex: 9
+  - Prefab: {fileID: 5106787088447390163, guid: a122876f4eef6be4da7f016e373b3930,
+      type: 3}
+    ClassificationLabel: LAMP
+    _editorClassificationIndex: 11
   ActiveRoomsOnly: 1
   VerboseLogging: 0
   MaxSceneAnchorUpdatesPerFrame: 3
