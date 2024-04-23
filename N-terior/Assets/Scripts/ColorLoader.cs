@@ -8,8 +8,8 @@ using System.Net;
 
 public class ColorLoader : MonoBehaviour
 {
-    private const string localhostUrl = "http://localhost:8080/"; // Replace 3000 with your server's port
-    private const string getColorUrl = localhostUrl + "colors"; // Example GET endpoint
+    private const string hostUrl = "http://20.84.56.123:8080/"; 
+    private const string getColorUrl = hostUrl + "colors";
     public GameObject colorItemPrefab;
     public Text priceTextPrefab;
     public Transform contentPanel;
