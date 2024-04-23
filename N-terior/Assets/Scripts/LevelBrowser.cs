@@ -10,7 +10,7 @@ public class LevelBrowser : MonoBehaviour
     private int selectedWallIndex = -1;
 
 
-    private void Awake()
+    private void Update()
     {
         oVRSceneManager = FindObjectOfType<OVRSceneManager>();
         if (oVRSceneManager != null)
@@ -63,6 +63,7 @@ public class LevelBrowser : MonoBehaviour
         }
 
         Debug.Log("Length" + walls.Length);
+
         // Create buttons based on the number of walls
         for (int i = 0; i < walls.Length; i++)
         {
@@ -76,12 +77,13 @@ public class LevelBrowser : MonoBehaviour
                 levelButton.levelText.text = "Wall " + (wallIndex + 1);
             }
 
-            // Add the onClick listener
-            newButton.GetComponent<Button>().onClick.AddListener(() => SelectWall(wallIndex));
+            // Setup color and wall button functionality
+            Color colorToApply = Color.red; // This should be dynamically assigned, for example from a color picker
+            WallButton wallButton = newButton.AddComponent<WallButton>();
+            wallButton.Setup(colorToApply, wallChanger, wallIndex);
         }
-    }
 
-    private void SelectWall(int wallIndex)
+        private void SelectWall(int wallIndex)
     {
         // Log for debug purposes
         Debug.Log("Selected wall with index: " + wallIndex);
@@ -199,28 +201,4 @@ public class LevelBrowser : MonoBehaviour
 
 
 
-//Using System.Collections.Generic;
-//using UnityEngine;
-//using UnityEngine.UI;
 
-//public class LevelBrowser : MonoBehaviour
-//{
-//    public GameObject buttonPrefab;
-//    public GameObject buttonParent;
-
-//    private void OnEnable()
-//    {
-//        for (int i = 0; i < 5; i++)
-//        {
-//            GameObject newButton = Instantiate(buttonPrefab, buttonParent.transform);
-//            int levelNum = i + 1;
-//            newButton.GetComponent<LevelButton>().levelText.text = ("Wall " + (i + 1)).ToString();
-//            // newButton.GetComponent<Button>().onClick.AddListener(() => SelectLevel(GameManager.Instance.currentWorld, levelNum));
-//        }
-//    }
-
-//    private void SelectLevel(int world, int level)
-//    {
-//        Debug.Log("Loaded level" + world + " - " + level);
-//    }
-//}
