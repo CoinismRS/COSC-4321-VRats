@@ -39,6 +39,10 @@ public class floorChanger : MonoBehaviour
             {
                 floorMaterial.enabled = true;
             }
+            else
+            {
+                floorMaterial.enabled = false;
+            }
 
             floorMaterial.material = floorMat;
             if (floorMat == shaggy)
@@ -55,6 +59,7 @@ public class floorChanger : MonoBehaviour
             }
 
             totalFloorCost = floorArea * priceMultiplier;
+            //floorMat = null;
         }
     }
 
@@ -63,6 +68,12 @@ public class floorChanger : MonoBehaviour
         room = FindObjectOfType<OVRSceneRoom>();
         floor = room.Floor;
         floorArea = (floor.Height * floor.Width) * 10.76;  
+    }
+
+
+    public void resetAction()
+    {
+        floorMat = null;
     }
 }
 
