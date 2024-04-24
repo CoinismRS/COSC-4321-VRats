@@ -50,6 +50,11 @@ public class MenuController : MonoBehaviour
 
   void Update()
   {
+    wallTexts();
+  }
+
+  void wallTexts()
+  {
     // Display Area Size
     wallArea.text = wallPainter.paintAreaNeeded.ToString("F2") + " sq ft.";
 
@@ -77,7 +82,6 @@ public class MenuController : MonoBehaviour
     {
       paintName.text = "No matching color found";
     }
-
   }
 
   [System.Serializable]
