@@ -10819,7 +10819,6 @@ GameObject:
   m_Component:
   - component: {fileID: 852414804}
   - component: {fileID: 852414806}
-  - component: {fileID: 852414807}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -10946,21 +10945,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &852414807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852414803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c9d700c46d9b3c49a2c869147e41040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneManager: {fileID: 0}
-  color: {r: 1, g: 1, b: 1, a: 1}
-  body: {fileID: 0}
 --- !u!1 &862865651
 GameObject:
   m_ObjectHideFlags: 0
@@ -17907,6 +17891,7 @@ GameObject:
   - component: {fileID: 1451876342}
   - component: {fileID: 1451876341}
   - component: {fileID: 1451876340}
+  - component: {fileID: 1451876346}
   m_Layer: 0
   m_Name: '[BuildingBlock] Cube'
   m_TagString: Untagged
@@ -18044,6 +18029,21 @@ Transform:
   - {fileID: 238125257}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1451876346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451876339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9d700c46d9b3c49a2c869147e41040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneManager: {fileID: 1723242745}
+  color: {r: 1, g: 0.052560627, b: 0.052560627, a: 1}
+  body: {fileID: 1487010197}
 --- !u!1 &1454003411
 GameObject:
   m_ObjectHideFlags: 0
@@ -19631,7 +19631,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallMat: {fileID: 2100000, guid: d7e1058704065634b8158d828d715b63, type: 2}
-  floorMat: {fileID: 2100000, guid: b32183a9d6da0c047a9545ada1c1f05b, type: 2}
+  ceilingMat: {fileID: 0}
+  wallIndex: 0
   fcp: {fileID: 1821293289}
   paintAreaNeeded: 0
 --- !u!4 &1597595748
