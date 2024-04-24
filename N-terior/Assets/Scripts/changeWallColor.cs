@@ -22,8 +22,9 @@ public class changeWallColor : MonoBehaviour
     private List<double> wallStuffsArea = new List<double>();
     private GameObject roomModel;
     public double paintAreaNeeded;
-    public double paintCostPerGallon = 17.0;
+    public double paintCostPerGallon = 75.0;
     public double totalPaintCost;
+    public int cans;
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class changeWallColor : MonoBehaviour
             var areaDeductions = getWallStuffsArea();
             paintAreaNeeded = totalArea - areaDeductions;
             var gallons = Math.Ceiling(paintAreaNeeded / 350.0);
+            cans = (int)gallons;
             totalPaintCost = gallons * paintCostPerGallon;
 
         }
