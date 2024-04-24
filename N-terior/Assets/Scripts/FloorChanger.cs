@@ -12,6 +12,7 @@ public class floorChanger : MonoBehaviour
     private OVRSceneRoom room;
     private OVRScenePlane floor;
     public Material floorMat;
+    public double floorArea;
 
     private void Awake()
     {
@@ -43,6 +44,7 @@ public class floorChanger : MonoBehaviour
     {
         room = FindObjectOfType<OVRSceneRoom>();
         floor = room.Floor;
+        floorArea = floor.Height * floor.Width;  
     }
 }
 

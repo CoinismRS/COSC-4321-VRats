@@ -7,6 +7,7 @@ using System.IO;
 using System.Net;
 using UnityEditor;
 
+
 public class ColorLoader : MonoBehaviour
 {
     private const string localhostUrl = "http://20.84.56.123:8080/"; // Replace 3000 with your server's port
@@ -15,7 +16,11 @@ public class ColorLoader : MonoBehaviour
     public Text priceTextPrefab;
     public Transform contentPanel;
 
+    public float colorPrice;
     public Color selectedColor;
+    public double totalPrice;
+
+    private changeWallColor surfaceArea;
 
     void Start()
     {
@@ -72,6 +77,22 @@ public class ColorLoader : MonoBehaviour
         return new Color32(r, g, b, 255);
     }
 
+
+    public static double CustomCeiling(double value)
+    {
+        int integralPart = (int)value;
+        if (value > integralPart)
+        {
+            return integralPart + 1;
+        }
+        else
+        {
+            return integralPart;
+        }
+    }
+
+
+
     // Populates UI with color items
     void PopulateUI(ColorList colorList)
     {
@@ -102,6 +123,13 @@ public class ColorLoader : MonoBehaviour
             background.color = HexToColor(color.hex);
 
             newItem.GetComponent<Button>().onClick.AddListener(() => selectedColor = background.color);
+
+
+            //price of all wall calculation
+            double coveragePerGallon = 350; // Coverage per gallon in square feet
+            double gallonsNeeded = surfaceArea.paintAreaNeeded / coveragePerGallon;
+            totalPrice = color.price * CustomCeiling(gallonsNeeded);
+
         }
     }
 }
