@@ -19,6 +19,10 @@ public class floorChanger : MonoBehaviour
         oVRSceneManager.SceneModelLoadedSuccessfully += SceneLoaded;
     }
 
+    public void ChangeMaterial(Material newMaterial)
+    {
+        floorMat = newMaterial;
+    }
 
     private void Update()
     {

@@ -38,15 +38,17 @@ public class userFollower : MonoBehaviour
 
         if (!isCentered)
         {
-            
+
             Vector3 targetPosition = FindTargetPosition();
 
             MoveTowards(targetPosition);
 
             if (ReachedPosition(targetPosition))
                 isCentered = true;
-               
+
+
         }
+
     }
 
     private Vector3 FindTargetPosition()
