@@ -4203,6 +4203,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 720
       objectReference: {fileID: 0}
+    - target: {fileID: 2484081906158339299, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 495638355}
+    - target: {fileID: 2484081906158339299, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     - target: {fileID: 2715201068046070802, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4257,6 +4267,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 5621134267736041017, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 732997236}
+    - target: {fileID: 5621134267736041017, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 5752094132693989537, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
         type: 3}
@@ -4327,7 +4347,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 126220448}
+      objectReference: {fileID: 732997236}
     - target: {fileID: 8005345944274544818, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -8318,6 +8338,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 519645348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &732997236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 571565949330344849, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 397503227}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &733380464
 GameObject:
   m_ObjectHideFlags: 0
