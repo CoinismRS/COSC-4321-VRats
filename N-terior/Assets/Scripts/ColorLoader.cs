@@ -125,11 +125,6 @@ public class ColorLoader : MonoBehaviour
             newItem.GetComponent<Button>().onClick.AddListener(() => selectedColor = background.color);
 
 
-            //price of all wall calculation
-            double coveragePerGallon = 350; // Coverage per gallon in square feet
-            double gallonsNeeded = surfaceArea.paintAreaNeeded / coveragePerGallon;
-            totalPrice = color.price * CustomCeiling(gallonsNeeded);
-
         }
     }
 }
