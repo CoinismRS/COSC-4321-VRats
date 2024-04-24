@@ -12,8 +12,8 @@ public class changeWallColor : MonoBehaviour
 {
     private OVRSceneManager oVRSceneManager;
     private OVRSceneRoom room;
-    private OVRScenePlane[] walls;
-    private OVRScenePlane ceiling;
+    public OVRScenePlane[] walls;
+    public OVRScenePlane ceiling;
 
     public Material wallMat;
     public Material ceilingMat;
@@ -66,7 +66,7 @@ public class changeWallColor : MonoBehaviour
                     wallMaterial.material = wallMat;
                 }*/
 
-                changeSingleWallColor(wallIndex);
+                changeSingleWallColor(wallIndex, fcp.color);
                 fcp.color = Color.clear;
 
 
@@ -122,14 +122,14 @@ public class changeWallColor : MonoBehaviour
         return area;
     }
 
-    public void changeSingleWallColor(int wallIndex)
+    public void changeSingleWallColor(int wallIndex, Color color)
     {
         if (wallIndex >= walls.Length)
         {
             var ceilingMaterial = ceiling.GetComponent<MeshRenderer>();
             ceilingMaterial.enabled = true;
             ceilingMaterial.material = ceilingMat;
-            ceilingMaterial.material.color = ceilingMat.color;
+            ceilingMaterial.material.color = color;//ceilingMat.color;
             return;
         }
 
@@ -138,7 +138,25 @@ public class changeWallColor : MonoBehaviour
         var wallMaterial = wall.GetComponent<MeshRenderer>();
         wallMaterial.enabled = true;
         wallMaterial.material = wallMat;
-        wallMaterial.material.color = wallMat.color;
+        wallMaterial.material.color = color;//wallMat.color;
+    }
+
+    public void ResetWallColor(int wallIndex)
+    {
+        if (wallIndex < 0 || wallIndex >= walls.Length)
+        {
+            // Out of range, handle error or ignore
+            return;
+        }
+
+        // Change the color of the wall to the default color or material
+        var wallMaterial = walls[wallIndex].GetComponent<MeshRenderer>();
+        if (wallMaterial != null)
+        {
+            wallMaterial.enabled = false; // Assuming 'enabled' means visible in this context
+            //wallMaterial.material = defaultWallMat; // Use the default material
+            //wallMaterial.material.color = defaultColor; // Or just change the color
+        }
     }
 
 

@@ -5,14 +5,17 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.IO;
 using System.Net;
+using UnityEditor;
 
 public class ColorLoader : MonoBehaviour
 {
-    private const string hostUrl = "http://20.84.56.123:8080/"; 
-    private const string getColorUrl = hostUrl + "colors";
+    private const string localhostUrl = "http://20.84.56.123:8080/"; // Replace 3000 with your server's port
+    private const string getColorUrl = localhostUrl + "colors"; // Example GET endpoint
     public GameObject colorItemPrefab;
     public Text priceTextPrefab;
     public Transform contentPanel;
+
+    public Color selectedColor;
 
     void Start()
     {
@@ -21,10 +24,9 @@ public class ColorLoader : MonoBehaviour
 
     void LoadColors()
     {
+        ServicePointManager.ServerCertificateValidationCallback = (a, b, c, d) => true;
         // Create a UnityWebRequest object to make the HTTP request
         UnityWebRequest www = UnityWebRequest.Get(getColorUrl);
-
-        // Send the request asynchronously
         StartCoroutine(SendWebRequest(www));
     }
 
@@ -44,11 +46,11 @@ public class ColorLoader : MonoBehaviour
         {
             // Extract JSON data from the response
             string dataAsJson = www.downloadHandler.text;
-            
+
             // Deserialize the JSON to the ColorList object
             ColorList colorList = JsonUtility.FromJson<ColorList>(dataAsJson);
             Debug.Log(colorList);
-            
+
             // Populate UI with the deserialized color data
             PopulateUI(colorList);
         }
@@ -60,20 +62,20 @@ public class ColorLoader : MonoBehaviour
     {
         // Remove the '#' from string
         hex = hex.Replace("#", "");
-        
+
         // Parse the r, g, and b values from the hex string.
         byte r = byte.Parse(hex.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
         byte g = byte.Parse(hex.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
         byte b = byte.Parse(hex.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
-        
+
         // Return color object
         return new Color32(r, g, b, 255);
-    }    
+    }
 
     // Populates UI with color items
     void PopulateUI(ColorList colorList)
     {
-        
+
         // Delete existing color items in the content panel
         foreach (Transform child in contentPanel)
         {
@@ -85,19 +87,22 @@ public class ColorLoader : MonoBehaviour
         {
             // Create new color item prefab as a child of the content panel
             GameObject newItem = Instantiate(colorItemPrefab, contentPanel);
-            
+
             // Set the color name in the prefab's Text component
             newItem.GetComponentInChildren<Text>().text = color.name;
-            
+
             // Assign a random price between 15 and 20 to the color
             color.price = (Mathf.Round(Random.Range(15f, 20.5f) * 2) / 2) - 0.01f; // 21 is exclusive
             Text priceTextComponent = Instantiate(priceTextPrefab, newItem.transform).GetComponent<Text>();
             // display price value for price
             priceTextComponent.text = "$" + color.price.ToString("F2") + " / gallon";
-            
+
             // Set its color based on the hex value.
             Image background = newItem.GetComponentInChildren<Image>();
             background.color = HexToColor(color.hex);
+
+            newItem.GetComponent<Button>().onClick.AddListener(() => selectedColor = background.color);
         }
     }
 }
+
