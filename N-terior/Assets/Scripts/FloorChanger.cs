@@ -13,9 +13,9 @@ public class floorChanger : MonoBehaviour
     private OVRScenePlane floor;
     public Material floorMat;
     public double floorArea;
-    public Material shaggy;
+    /*public Material shaggy;
     public Material tile;
-    public Material wood;
+    public Material wood;*/
     private double priceMultiplier;
     public double totalFloorCost;
     private void Awake()
@@ -45,15 +45,15 @@ public class floorChanger : MonoBehaviour
             }
 
             floorMaterial.material = floorMat;
-            if (floorMat == shaggy)
+            if (floorMat.name.ToLower().Contains("carpet"))
             {
                 priceMultiplier = 2.5;
             } 
-            else if (floorMat == tile)
+            else if (floorMat.name.ToLower().Contains("tile"))
             {
                 priceMultiplier = 10.0;
             } 
-            else if (floorMat == wood)
+            else if (floorMat.name.ToLower().Contains("wooden"))
             {
                 priceMultiplier = 13.5;
             }
