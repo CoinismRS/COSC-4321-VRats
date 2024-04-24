@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Beige_House_Carpet
+  m_Name: White_Marble_Tile
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -29,11 +29,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 3a21afdd709276d408dc9ed4ac6cc216, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3d8f88fb4ec4b47448e64229cc2ccb15, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 6308b90ec14557f4490eaba4a195c889, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3dccc38493fc7ca4fbf4b86b9f00ccb6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -53,19 +53,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 3a21afdd709276d408dc9ed4ac6cc216, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3d8f88fb4ec4b47448e64229cc2ccb15, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 77e7b168bb4cb8d41952d53ddf5181a6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 199a242fbfcf37a45b9a6bdc16f616e3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: 0effb743d487f4a4b92292b0faa735f4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 64f16df3fee06bc4e8b54cd5e6b82540, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: 9dfe5e46009b0f1449ccd6e51bf03037, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4e61ddcabb4f5e24a8c47be94dae6e8c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -108,7 +108,7 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.255
+    - _Smoothness: 0.406
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -122,7 +122,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &2765585292161848858
+--- !u!114 &4452259249638999469
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
