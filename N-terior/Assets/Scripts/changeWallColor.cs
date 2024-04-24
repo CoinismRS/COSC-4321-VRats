@@ -22,6 +22,8 @@ public class changeWallColor : MonoBehaviour
     private List<double> wallStuffsArea = new List<double>();
     private GameObject roomModel;
     public double paintAreaNeeded;
+    public double paintCostPerGallon = 17.0;
+    public double totalPaintCost;
 
     private void Awake()
     {
@@ -37,6 +39,8 @@ public class changeWallColor : MonoBehaviour
             var totalArea = getAreaOfRoom();
             var areaDeductions = getWallStuffsArea();
             paintAreaNeeded = totalArea - areaDeductions;
+            var gallons = Math.Ceiling(paintAreaNeeded / 350.0);
+            totalPaintCost = gallons * paintCostPerGallon;
 
         }
 
@@ -46,27 +50,27 @@ public class changeWallColor : MonoBehaviour
             if (fcp.color != Color.clear)
             {
                 wallMat.color = fcp.color;
-                if (wallIndex >= walls.Length)
+                /*if (wallIndex >= walls.Length)
                 {
                     ceilingMat.color = fcp.color;
                 }
                 else
                 {
                     wallMat.color = fcp.color;
-                }
+                }*/
 
                 //Commented code is still needed for later use probably don't delete
                 //ceilingMaterial.enabled = true;
                 //ceilingMaterial.material = wallMat;
 
-                /*foreach (var wall in walls)
+                foreach (var wall in walls)
                 {
                     var wallMaterial = wall.GetComponent<MeshRenderer>();
                     wallMaterial.enabled = true;
                     wallMaterial.material = wallMat;
-                }*/
+                }
 
-                changeSingleWallColor(wallIndex, fcp.color);
+                //changeSingleWallColor(wallIndex, fcp.color);
                 fcp.color = Color.clear;
 
 
@@ -108,7 +112,7 @@ public class changeWallColor : MonoBehaviour
                 }
             }
         }
-        return area;
+        return area * 10.76;
     }
 
     public double getWallStuffsArea()
@@ -119,7 +123,7 @@ public class changeWallColor : MonoBehaviour
         {
             area += wallStuffArea;
         }
-        return area;
+        return area * 10.76;
     }
 
     public void changeSingleWallColor(int wallIndex, Color color)

@@ -13,7 +13,11 @@ public class floorChanger : MonoBehaviour
     private OVRScenePlane floor;
     public Material floorMat;
     public double floorArea;
-
+    public Material shaggy;
+    public Material tile;
+    public Material wood;
+    private double priceMultiplier;
+    public double totalFloorCost;
     private void Awake()
     {
         oVRSceneManager = FindObjectOfType<OVRSceneManager>();
@@ -37,6 +41,20 @@ public class floorChanger : MonoBehaviour
             }
 
             floorMaterial.material = floorMat;
+            if (floorMat == shaggy)
+            {
+                priceMultiplier = 2.5;
+            } 
+            else if (floorMat == tile)
+            {
+                priceMultiplier = 10.0;
+            } 
+            else if (floorMat == wood)
+            {
+                priceMultiplier = 13.5;
+            }
+
+            totalFloorCost = floorArea * priceMultiplier;
         }
     }
 
@@ -44,7 +62,7 @@ public class floorChanger : MonoBehaviour
     {
         room = FindObjectOfType<OVRSceneRoom>();
         floor = room.Floor;
-        floorArea = floor.Height * floor.Width;  
+        floorArea = (floor.Height * floor.Width) * 10.76;  
     }
 }
 
