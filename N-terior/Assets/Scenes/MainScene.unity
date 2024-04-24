@@ -4107,11 +4107,11 @@ MonoBehaviour:
   m_Content: {fileID: 1563961474}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 0.05
   m_Viewport: {fileID: 827152069}
   m_HorizontalScrollbar: {fileID: 1698929668}
   m_VerticalScrollbar: {fileID: 1636971992}
@@ -6203,11 +6203,11 @@ MonoBehaviour:
   m_Content: {fileID: 1498752618}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 0.05
   m_Viewport: {fileID: 1046364001}
   m_HorizontalScrollbar: {fileID: 1176748513}
   m_VerticalScrollbar: {fileID: 1005440191}
@@ -27531,11 +27531,11 @@ MonoBehaviour:
   m_Content: {fileID: 667331830}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 0.05
   m_Viewport: {fileID: 64201454}
   m_HorizontalScrollbar: {fileID: 421712627}
   m_VerticalScrollbar: {fileID: 1196836313}
