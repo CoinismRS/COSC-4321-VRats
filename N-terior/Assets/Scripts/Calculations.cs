@@ -5,7 +5,9 @@ public class CalculateCost : MonoBehaviour
 {
     public TextMeshProUGUI totalPaintCostText;
     public TextMeshProUGUI paintNeeded;
+    public TextMeshProUGUI totalFloorCostText;
     public changeWallColor wallCalculations;
+    public floorChanger floorCalculations;
     
 
     public void CalculateTotalCost()
@@ -18,5 +20,11 @@ public class CalculateCost : MonoBehaviour
 
         double totalPaintCost = cansNeeded * 75;
         totalPaintCostText.text = "$" + totalPaintCost.ToString();
+    }
+
+    public void CalculateFloorCost()
+    {
+        double totalFloorCost = floorCalculations.totalFloorCost;
+        totalFloorCostText.text = "$" + totalFloorCost.ToString();
     }
 }

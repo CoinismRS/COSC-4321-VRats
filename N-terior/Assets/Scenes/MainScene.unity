@@ -4830,6 +4830,11 @@ PrefabInstance:
       objectReference: {fileID: 871402760}
     - target: {fileID: 2954280445974897966, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
         type: 3}
+      propertyPath: floorArea
+      value: 
+      objectReference: {fileID: 1502011025}
+    - target: {fileID: 2954280445974897966, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
+        type: 3}
       propertyPath: paintName
       value: 
       objectReference: {fileID: 1665586508}
@@ -4843,6 +4848,11 @@ PrefabInstance:
       propertyPath: wallPainter
       value: 
       objectReference: {fileID: 1597595747}
+    - target: {fileID: 2954280445974897966, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
+        type: 3}
+      propertyPath: floorController
+      value: 
+      objectReference: {fileID: 72489904}
     - target: {fileID: 3130794971360987275, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
         type: 3}
       propertyPath: m_IsActive
@@ -5359,7 +5369,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalPaintCostText: {fileID: 397503229}
   paintNeeded: {fileID: 1132187398}
+  totalFloorCostText: {fileID: 0}
   wallCalculations: {fileID: 1597595747}
+  floorCalculations: {fileID: 0}
 --- !u!1 &404767232
 GameObject:
   m_ObjectHideFlags: 0
@@ -8433,6 +8445,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &621927169 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5590403485869659772, guid: 330fe276cdd44424a81590d9d1f615bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 820833431}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &623529865
 GameObject:
   m_ObjectHideFlags: 0
@@ -10841,6 +10865,41 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ChangeMaterial
       objectReference: {fileID: 0}
+    - target: {fileID: 3400947310717114515, guid: 330fe276cdd44424a81590d9d1f615bc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400947310717114515, guid: 330fe276cdd44424a81590d9d1f615bc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400947310717114515, guid: 330fe276cdd44424a81590d9d1f615bc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 979316140}
+    - target: {fileID: 3400947310717114515, guid: 330fe276cdd44424a81590d9d1f615bc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400947310717114515, guid: 330fe276cdd44424a81590d9d1f615bc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CalculateFloorCost
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400947310717114515, guid: 330fe276cdd44424a81590d9d1f615bc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CalculateCost, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400947310717114515, guid: 330fe276cdd44424a81590d9d1f615bc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3434082351826646489, guid: 330fe276cdd44424a81590d9d1f615bc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -11003,7 +11062,11 @@ PrefabInstance:
         type: 3}
       insertIndex: 0
       addedObject: {fileID: 745687533}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8127404282846934815, guid: 330fe276cdd44424a81590d9d1f615bc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 979316140}
   m_SourcePrefab: {fileID: 100100000, guid: 330fe276cdd44424a81590d9d1f615bc, type: 3}
 --- !u!224 &820833432 stripped
 RectTransform:
@@ -13289,6 +13352,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1068932650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &979316135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8127404282846934815, guid: 330fe276cdd44424a81590d9d1f615bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 820833431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &979316140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979316135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61dcdbc888c32cc418ecc1b1c348defb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalPaintCostText: {fileID: 0}
+  paintNeeded: {fileID: 0}
+  totalFloorCostText: {fileID: 621927169}
+  wallCalculations: {fileID: 0}
+  floorCalculations: {fileID: 72489904}
 --- !u!1 &986109443
 GameObject:
   m_ObjectHideFlags: 0
@@ -20232,6 +20318,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 606856225}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1502011025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7539430858022279322, guid: 330fe276cdd44424a81590d9d1f615bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 820833431}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1503025201
 GameObject:
   m_ObjectHideFlags: 0

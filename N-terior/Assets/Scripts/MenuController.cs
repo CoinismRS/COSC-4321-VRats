@@ -11,7 +11,9 @@ public class MenuController : MonoBehaviour
   public FlexibleColorPicker fcp;
   public TextMeshProUGUI paintName;
   public TextMeshProUGUI wallArea;
+  public TextMeshProUGUI floorArea;
   public changeWallColor wallPainter;
+  public floorChanger floorController;
   
   private List<ColorData> colorList;
 
@@ -51,6 +53,7 @@ public class MenuController : MonoBehaviour
   void Update()
   {
     wallTexts();
+    floorTexts();
   }
 
   void wallTexts()
@@ -83,6 +86,12 @@ public class MenuController : MonoBehaviour
       paintName.text = "No matching color found";
     }
   }
+
+  void floorTexts()
+  {
+    //Display Area Size
+    floorArea.text = floorController.floorArea.ToString("F2") + " sq ft.";
+  }  
 
   [System.Serializable]
   public class ColorData
