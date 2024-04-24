@@ -25,6 +25,7 @@ public class changeWallColor : MonoBehaviour
     public double paintCostPerGallon = 75.0;
     public double totalPaintCost;
     public int cans;
+    public bool reset = false;
 
     private void Awake()
     {
@@ -52,6 +53,7 @@ public class changeWallColor : MonoBehaviour
             if (fcp.color != Color.clear)
             {
                 wallMat.color = fcp.color;
+                reset = false;
                 /*if (wallIndex >= walls.Length)
                 {
                     ceilingMat.color = fcp.color;
@@ -75,6 +77,17 @@ public class changeWallColor : MonoBehaviour
                 //changeSingleWallColor(wallIndex, fcp.color);
                 fcp.color = Color.clear;
 
+
+            }
+
+            if (reset)
+            {
+                foreach (var wall in walls)
+                {
+                    var wallMaterial = wall.GetComponent<MeshRenderer>();
+                    wallMaterial.enabled = false;
+                    
+                }
 
             }
         }
@@ -164,6 +177,13 @@ public class changeWallColor : MonoBehaviour
             //wallMaterial.material.color = defaultColor; // Or just change the color
         }
     }
+
+    public void resetAction()
+    {
+        reset = true;
+    }
+
+    
 
 
 }
