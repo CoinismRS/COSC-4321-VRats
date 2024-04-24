@@ -6,6 +6,7 @@ TagManager:
   tags:
   - wallStuff
   - Wall
+  - SelectedColor
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 using System.IO;
 using System.Net;
 using UnityEditor;
+using TMPro;
 
 
 public class ColorLoader : MonoBehaviour
@@ -21,6 +22,7 @@ public class ColorLoader : MonoBehaviour
     public double totalPrice;
 
     private changeWallColor surfaceArea;
+    public GameObject textMesh;
 
     void Start()
     {
@@ -122,10 +124,24 @@ public class ColorLoader : MonoBehaviour
             Image background = newItem.GetComponentInChildren<Image>();
             background.color = HexToColor(color.hex);
 
-            newItem.GetComponent<Button>().onClick.AddListener(() => selectedColor = background.color);
+            //newItem.GetComponent<Button>().onClick.AddListener(() => selectedColor = background.color);
+            newItem.GetComponent<Button>().onClick.AddListener(() => setColorAndShowColor(background.color, color.name));
 
 
         }
+    }
+
+
+    public void setColorAndShowColor(Color color, string colorName)
+    {
+        selectedColor = color;
+        textMesh.GetComponent<TextMeshProUGUI>().text = colorName;
+        textMesh.GetComponent<TextMeshProUGUI>().color = color;
+        //GameObject showColorItem = GameObject.FindGameObjectWithTag("SelectedColor");
+        //Debug.Log("look here:" + showColorItem);
+        //showColorItem.GetComponent<TextMeshPro>().text = "sdkjfnksdjfjkfds";
+        //showColorItem.GetComponent<TextMeshPro>().color = color;
+        //Debug.Log("here I am: " + showColorItem.GetComponent<TextMeshPro>().text);
     }
 }
 
