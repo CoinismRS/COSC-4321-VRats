@@ -2967,7 +2967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &105360423727553818
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10103,7 +10103,9 @@ MonoBehaviour:
   fcp: {fileID: 0}
   paintName: {fileID: 0}
   wallArea: {fileID: 0}
+  floorArea: {fileID: 0}
   wallPainter: {fileID: 0}
+  floorController: {fileID: 0}
 --- !u!1 &3931875557680497028
 GameObject:
   m_ObjectHideFlags: 0
