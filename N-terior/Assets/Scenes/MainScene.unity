@@ -735,6 +735,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorMat: {fileID: 0}
+  floorArea: 0
+  shaggy: {fileID: 2100000, guid: 3d14687d988d89347885347b2694026d, type: 2}
+  tile: {fileID: 2100000, guid: 361581b6310c9f347bf2431eeb99974e, type: 2}
+  wood: {fileID: 2100000, guid: 769344e13b030294096e30b1ef2a39f8, type: 2}
+  totalFloorCost: 0
 --- !u!4 &72489905
 Transform:
   m_ObjectHideFlags: 0
@@ -4210,6 +4215,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 720
       objectReference: {fileID: 0}
+    - target: {fileID: 571565949330344849, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 895589296978542749, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -4259,6 +4269,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210436322508165993, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425776967749122452, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3926827793259015189, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
         type: 3}
@@ -18861,6 +18881,8 @@ MonoBehaviour:
   wallIndex: 0
   fcp: {fileID: 1285808171}
   paintAreaNeeded: 0
+  paintCostPerGallon: 17
+  totalPaintCost: 0
 --- !u!4 &1597595748
 Transform:
   m_ObjectHideFlags: 0
