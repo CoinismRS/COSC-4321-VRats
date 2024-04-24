@@ -19,12 +19,12 @@ public class CalculateCost : MonoBehaviour
 
 
         double totalPaintCost = cansNeeded * 75;
-        totalPaintCostText.text = "$" + totalPaintCost.ToString();
+        totalPaintCostText.text = "$" + totalPaintCost.ToString("F2");
     }
 
     public void CalculateFloorCost()
     {
         double totalFloorCost = floorCalculations.totalFloorCost;
-        totalFloorCostText.text = "$" + totalFloorCost.ToString();
+        totalFloorCostText.text = "$" + totalFloorCost.ToString("F2");
     }
 }
