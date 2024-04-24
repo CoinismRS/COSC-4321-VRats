@@ -53,7 +53,7 @@ public class changeWallColor : MonoBehaviour
             if (fcp.color != Color.clear)
             {
                 wallMat.color = fcp.color;
-                reset = false;
+                
                 /*if (wallIndex >= walls.Length)
                 {
                     ceilingMat.color = fcp.color;
@@ -80,7 +80,7 @@ public class changeWallColor : MonoBehaviour
 
             }
 
-            if (reset)
+            /*if (reset)
             {
                 foreach (var wall in walls)
                 {
@@ -89,7 +89,7 @@ public class changeWallColor : MonoBehaviour
                     
                 }
 
-            }
+            }*/
         }
     }
 
@@ -180,7 +180,12 @@ public class changeWallColor : MonoBehaviour
 
     public void resetAction()
     {
-        reset = true;
+        foreach (var wall in walls)
+        {
+            var wallMaterial = wall.GetComponent<MeshRenderer>();
+            wallMaterial.enabled = false;
+
+        }
     }
 
     
