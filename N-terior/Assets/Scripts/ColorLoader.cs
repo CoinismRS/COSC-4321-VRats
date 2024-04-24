@@ -15,6 +15,8 @@ public class ColorLoader : MonoBehaviour
     public Text priceTextPrefab;
     public Transform contentPanel;
 
+    public Color selectedColor;
+
     void Start()
     {
         LoadColors();
@@ -98,6 +100,8 @@ public class ColorLoader : MonoBehaviour
             // Set its color based on the hex value.
             Image background = newItem.GetComponentInChildren<Image>();
             background.color = HexToColor(color.hex);
+
+            newItem.GetComponent<Button>().onClick.AddListener(() => selectedColor = background.color);
         }
     }
 }

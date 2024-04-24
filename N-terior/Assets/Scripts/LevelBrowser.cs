@@ -7,6 +7,7 @@ public class LevelBrowser : MonoBehaviour
     public Transform buttonParent; // It's better to use Transform here
     public changeWallColor wallChanger; // Reference to the changeWallColor script
     private OVRSceneManager oVRSceneManager;
+    private ColorLoader sc;
 
     private void Awake()
     {
@@ -87,7 +88,7 @@ public class LevelBrowser : MonoBehaviour
         // If wallChanger is set, instruct it to change the wall color
         if (wallChanger != null)
         {
-            wallChanger.changeSingleWallColor(wallIndex, Color.red); // Use the index directly
+            wallChanger.changeSingleWallColor(wallIndex, sc.selectedColor); // Use the index directly
         }
     }
 }
