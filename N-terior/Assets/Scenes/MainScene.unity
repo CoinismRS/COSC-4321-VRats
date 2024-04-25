@@ -1443,7 +1443,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 702177185}
+      - m_Target: {fileID: 252183862}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -26607,6 +26607,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 702177185}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1272365443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34189,7 +34201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorItemPrefab: {fileID: 4386674598394046565, guid: 18a1cd5a912e540cba0d63c1af7e08bd,
     type: 3}
-  priceTextPrefab: {fileID: 2145080977149826190, guid: 71c8d84deeba44bd19960837cda6db66,
+  priceTextPrefab: {fileID: 7510893625467644541, guid: 883ea208448be2e4784acd462476b54e,
     type: 3}
   colorPrice: 0
   selectedColor: {r: 0, g: 0, b: 0, a: 0}

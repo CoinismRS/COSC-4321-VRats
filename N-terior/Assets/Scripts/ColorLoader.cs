@@ -15,7 +15,7 @@ public class ColorLoader : MonoBehaviour
     private const string hostUrl = "http://20.84.56.123:8080/";
     private const string getColorUrl = hostUrl + "colors"; // Example GET endpoint
     public GameObject colorItemPrefab;
-    public Text priceTextPrefab;
+    public TextMeshProUGUI priceTextPrefab;
 
     public float colorPrice;
     public Color selectedColor;
@@ -151,10 +151,10 @@ public class ColorLoader : MonoBehaviour
             individualWalls.GetComponentInChildren<TextMeshProUGUI>().text = color.name;
             allWalls.GetComponentInChildren<TextMeshProUGUI>().text = color.name;
 
-            // Assign a random price between 15 and 20 to the color
-            color.price = (Mathf.Round(Random.Range(15f, 20.5f) * 2) / 2) - 0.01f; // 21 is exclusive
-            Text individualWallPriceTextComponent = Instantiate(priceTextPrefab, individualWalls.transform).GetComponent<Text>();
-            Text allWallsPriceTextComponent = Instantiate(priceTextPrefab, allWalls.transform).GetComponent<Text>();
+            // Assign a random price between 22.5 and 50 to the color
+            color.price = (Mathf.Round(Random.Range(22.5f, 50f) * 2) / 2) - 0.01f; // 50 is exclusive
+            TMP_Text individualWallPriceTextComponent = Instantiate(priceTextPrefab, individualWalls.transform).GetComponent<TextMeshProUGUI>();
+            TMP_Text allWallsPriceTextComponent = Instantiate(priceTextPrefab, allWalls.transform).GetComponent<TextMeshProUGUI>();
             
             // display price value for price
             individualWallPriceTextComponent.text = "$" + color.price.ToString("F2") + " / gallon";
@@ -189,5 +189,7 @@ public class ColorLoader : MonoBehaviour
         //showColorItem.GetComponent<TextMeshPro>().color = color;
         //Debug.Log("here I am: " + showColorItem.GetComponent<TextMeshPro>().text);
     }
+
+
 }
 

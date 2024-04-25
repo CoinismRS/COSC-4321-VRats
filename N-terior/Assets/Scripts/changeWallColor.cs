@@ -62,6 +62,7 @@ public class changeWallColor : MonoBehaviour
                     var wallMaterial = wall.GetComponent<MeshRenderer>();
                     wallMaterial.enabled = true;
                     wallMaterial.material = wallMat;
+                    wallMaterial.material.color = fcp.color;
                 }
 
                 fcp.color = Color.clear;
