@@ -18043,7 +18043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneManager: {fileID: 1723242745}
   color: {r: 1, g: 0.052560627, b: 0.052560627, a: 1}
-  body: {fileID: 1487010197}
+  body: {fileID: 1451876342}
 --- !u!1 &1454003411
 GameObject:
   m_ObjectHideFlags: 0
