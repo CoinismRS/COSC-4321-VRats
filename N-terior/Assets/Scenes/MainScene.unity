@@ -8924,7 +8924,7 @@ PrefabInstance:
     - target: {fileID: 5109906797593129078, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5520563017877710461, guid: 4f0d580854638ff4eac0ecd7a7361b0b,
         type: 3}
@@ -17074,11 +17074,11 @@ MonoBehaviour:
   m_Content: {fileID: 1156255811}
   m_Horizontal: 1
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 0.05
   m_Viewport: {fileID: 1510764623}
   m_HorizontalScrollbar: {fileID: 989443817}
   m_VerticalScrollbar: {fileID: 1791474329}
@@ -18035,7 +18035,7 @@ PrefabInstance:
     - target: {fileID: 8558679784412709857, guid: 330fe276cdd44424a81590d9d1f615bc,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9110881111624567188, guid: 330fe276cdd44424a81590d9d1f615bc,
         type: 3}
@@ -26131,7 +26131,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &1207343023
 Canvas:
   m_ObjectHideFlags: 0
