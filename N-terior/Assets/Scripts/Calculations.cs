@@ -22,7 +22,6 @@ public class CalculateCost : MonoBehaviour
 
         float totalPaintCost = cansNeeded * colorLoader.colorPrice;
         totalPaintCostText.text = "$" + totalPaintCost.ToString("F2");
-        colorLoader.totalPrice = totalPaintCost;
     }
 
     public void CalculateFloorCost()
