@@ -26,6 +26,11 @@ public class ColorLoader : MonoBehaviour
 
     public changeWallColor wallChanger;
 
+    void Start()
+    {
+        LoadColors();
+    }
+
     void LoadColors()
     {
         ServicePointManager.ServerCertificateValidationCallback = (a, b, c, d) => true;
