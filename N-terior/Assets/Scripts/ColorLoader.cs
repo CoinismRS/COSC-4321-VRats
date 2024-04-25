@@ -24,10 +24,7 @@ public class ColorLoader : MonoBehaviour
     private changeWallColor surfaceArea;
     public GameObject textMesh;
 
-    void Start()
-    {
-        LoadColors();
-    }
+    public changeWallColor wallChanger;
 
     void LoadColors()
     {
@@ -126,9 +123,15 @@ public class ColorLoader : MonoBehaviour
 
             //newItem.GetComponent<Button>().onClick.AddListener(() => selectedColor = background.color);
             newItem.GetComponent<Button>().onClick.AddListener(() => setColorAndShowColor(background.color, color.name));
+            newItem.GetComponent<Button>().onClick.AddListener(() => SelectColorFromCatalog(background.color));
 
 
         }
+    }
+
+    private void SelectColorFromCatalog(Color color)
+    {
+        wallChanger.ChangeAllWallColors(color);
     }
 
 
