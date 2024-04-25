@@ -77,6 +77,7 @@ public class LevelBrowser : MonoBehaviour
 
             // Add the onClick listener
             newButton.GetComponent<Button>().onClick.AddListener(() => SelectWall(wallIndex));
+
         }
     }
 

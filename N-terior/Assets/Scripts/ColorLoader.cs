@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro; 
 using UnityEngine.Networking;
 using System.IO;
 using System.Net;
@@ -14,8 +15,7 @@ public class ColorLoader : MonoBehaviour
     private const string hostUrl = "http://20.84.56.123:8080/";
     private const string getColorUrl = hostUrl + "colors"; // Example GET endpoint
     public GameObject colorItemPrefab;
-    public Text priceTextPrefab;
-    public Transform contentPanel;
+    public TextMeshProUGUI priceTextPrefab;
 
     public float colorPrice;
     public Color selectedColor;
@@ -23,9 +23,40 @@ public class ColorLoader : MonoBehaviour
 
     private changeWallColor surfaceArea;
     public GameObject textMesh;
+    public GameObject textMesh2;
+
+    public changeWallColor wallChanger;
+
+    private OVRSceneManager oVRSceneManager;
+
+    public Transform individualWallsContentPanel;
+    public Transform allWallsContentPanel;
+
+    private void OnEnable()
+    {
+        // Ensure wallChanger is assigned
+        if (wallChanger == null)
+        {
+            // Find the changeWallColor script in the scene
+            wallChanger = FindObjectOfType<changeWallColor>();
+            if (wallChanger == null)
+            {
+                Debug.LogError("changeWallColor script not found in the scene.");
+                return;
+            }
+        }
+
+        // Assuming Helper will be called when the scene is loaded
+        // and buttons will be created in CreateButtons method
+    }
 
     void Start()
     {
+       if(wallChanger == null)
+       {
+            Debug.LogError("WallChanger component not found. Please assign it in the inspector.");
+            return; // Stop further execution if wallChanger is not assigned
+        }
         LoadColors();
     }
 
@@ -53,13 +84,13 @@ public class ColorLoader : MonoBehaviour
         {
             // Extract JSON data from the response
             string dataAsJson = www.downloadHandler.text;
+            OVRSceneRoom room = FindObjectOfType<OVRSceneRoom>();
 
             // Deserialize the JSON to the ColorList object
             ColorList colorList = JsonUtility.FromJson<ColorList>(dataAsJson);
             Debug.Log(colorList);
 
-            // Populate UI with the deserialized color data
-            PopulateUI(colorList);
+            PopulateUI(colorList, individualWallsContentPanel, allWallsContentPanel);
         }
     }
 
@@ -96,11 +127,16 @@ public class ColorLoader : MonoBehaviour
 
 
     // Populates UI with color items
-    void PopulateUI(ColorList colorList)
+    void PopulateUI(ColorList colorList, Transform individualWallsContentPanel, Transform allWallsContentPanel)
     {
 
         // Delete existing color items in the content panel
-        foreach (Transform child in contentPanel)
+        foreach (Transform child in individualWallsContentPanel)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (Transform child in allWallsContentPanel)
         {
             Destroy(child.gameObject);
         }
@@ -109,26 +145,40 @@ public class ColorLoader : MonoBehaviour
         foreach (ColorInfo color in colorList.colors)
         {
             // Create new color item prefab as a child of the content panel
-            GameObject newItem = Instantiate(colorItemPrefab, contentPanel);
+            GameObject individualWalls = Instantiate(colorItemPrefab, individualWallsContentPanel);
+            GameObject allWalls = Instantiate(colorItemPrefab, allWallsContentPanel);
 
             // Set the color name in the prefab's Text component
-            newItem.GetComponentInChildren<Text>().text = color.name;
+            individualWalls.GetComponentInChildren<TextMeshProUGUI>().text = color.name;
+            allWalls.GetComponentInChildren<TextMeshProUGUI>().text = color.name;
 
             // Assign a random price between 15 and 20 to the color
             color.price = (Mathf.Round(Random.Range(15f, 20.5f) * 2) / 2) - 0.01f; // 21 is exclusive
-            Text priceTextComponent = Instantiate(priceTextPrefab, newItem.transform).GetComponent<Text>();
+            TextMeshProUGUI individualWallPriceTextComponent = Instantiate(priceTextPrefab, individualWalls.transform).GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI allWallsPriceTextComponent = Instantiate(priceTextPrefab, allWalls.transform).GetComponent<TextMeshProUGUI>();
+            
             // display price value for price
-            priceTextComponent.text = "$" + color.price.ToString("F2") + " / gallon";
+            individualWallPriceTextComponent.text = "$" + color.price.ToString("F2") + " / gallon";
+            allWallsPriceTextComponent.text = "$" + color.price.ToString("F2") + " / gallon";
 
             // Set its color based on the hex value.
-            Image background = newItem.GetComponentInChildren<Image>();
-            background.color = HexToColor(color.hex);
+            Image individualWallBackground = individualWalls.GetComponentInChildren<Image>();
+            individualWallBackground.color = HexToColor(color.hex);
+            Image allWallsBackground = allWalls.GetComponentInChildren<Image>();
+            allWallsBackground.color = HexToColor(color.hex);
 
-            //newItem.GetComponent<Button>().onClick.AddListener(() => selectedColor = background.color);
-            newItem.GetComponent<Button>().onClick.AddListener(() => setColorAndShowColor(background.color, color.name));
-
-
+            individualWalls.GetComponent<Button>().onClick.AddListener(() => setColorAndShowColor(individualWallBackground.color, color.name));
+            allWalls.GetComponent<Button>().onClick.AddListener(() => SelectColorFromCatalog(allWallsBackground.color, color.price, color.name));
         }
+    }
+
+    private void SelectColorFromCatalog(Color color, float price, string colorName)
+    {
+        selectedColor = color;
+        colorPrice = price;
+        wallChanger.ChangeAllWallColors(color);
+        textMesh2.GetComponent<TextMeshProUGUI>().text = colorName;
+        textMesh2.GetComponent<TextMeshProUGUI>().color = color;
     }
 
 

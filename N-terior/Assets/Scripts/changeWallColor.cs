@@ -8,6 +8,8 @@ using Meta.XR.BuildingBlocks;
 using UnityEngine.UIElements;
 using System.ComponentModel;
 
+
+
 public class changeWallColor : MonoBehaviour
 {
     private OVRSceneManager oVRSceneManager;
@@ -26,6 +28,9 @@ public class changeWallColor : MonoBehaviour
     public double totalPaintCost;
     public int cans;
     public bool reset = false;
+    
+    public Color colorChange;
+    public ColorLoader sc;
 
     private void Awake()
     {
@@ -36,6 +41,7 @@ public class changeWallColor : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("changeSingleWallColor called from " + this.name);
         if (paintAreaNeeded == 0)
         {
             var totalArea = getAreaOfRoom();
@@ -49,24 +55,8 @@ public class changeWallColor : MonoBehaviour
 
         if (room != null)
         {
-            //var ceilingMaterial = ceiling.GetComponent<MeshRenderer>();
             if (fcp.color != Color.clear)
             {
-                wallMat.color = fcp.color;
-                
-                /*if (wallIndex >= walls.Length)
-                {
-                    ceilingMat.color = fcp.color;
-                }
-                else
-                {
-                    wallMat.color = fcp.color;
-                }*/
-
-                //Commented code is still needed for later use probably don't delete
-                //ceilingMaterial.enabled = true;
-                //ceilingMaterial.material = wallMat;
-
                 foreach (var wall in walls)
                 {
                     var wallMaterial = wall.GetComponent<MeshRenderer>();
@@ -74,22 +64,9 @@ public class changeWallColor : MonoBehaviour
                     wallMaterial.material = wallMat;
                 }
 
-                //changeSingleWallColor(wallIndex, fcp.color);
                 fcp.color = Color.clear;
 
-
             }
-
-            /*if (reset)
-            {
-                foreach (var wall in walls)
-                {
-                    var wallMaterial = wall.GetComponent<MeshRenderer>();
-                    wallMaterial.enabled = false;
-                    
-                }
-
-            }*/
         }
     }
 
@@ -143,6 +120,8 @@ public class changeWallColor : MonoBehaviour
 
     public void changeSingleWallColor(int wallIndex, Color color)
     {
+        Debug.Log("changeSingleWallColor called from " + this.name);
+
         if (wallIndex >= walls.Length)
         {
             var ceilingMaterial = ceiling.GetComponent<MeshRenderer>();
@@ -158,6 +137,17 @@ public class changeWallColor : MonoBehaviour
         wallMaterial.enabled = true;
         wallMaterial.material = wallMat;
         wallMaterial.material.color = color;//wallMat.color;
+    }
+
+    public void ChangeAllWallColors(Color color)
+    {
+        foreach (var wall in walls)
+        {
+            var wallMaterial = wall.GetComponent<MeshRenderer>();
+            wallMaterial.enabled = true;
+            wallMaterial.material = wallMat;
+            wallMaterial.material.color = color;//wallMat.color;
+        }
     }
 
     public void ResetWallColor(int wallIndex)
