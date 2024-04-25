@@ -15,7 +15,6 @@ public class ColorLoader : MonoBehaviour
     private const string getColorUrl = hostUrl + "colors"; // Example GET endpoint
     public GameObject colorItemPrefab;
     public Text priceTextPrefab;
-    public Transform contentPanel;
 
     public float colorPrice;
     public Color selectedColor;
@@ -26,8 +25,36 @@ public class ColorLoader : MonoBehaviour
 
     public changeWallColor wallChanger;
 
+    private OVRSceneManager oVRSceneManager;
+
+    public Transform individualWallsContentPanel;
+    public Transform allWallsContentPanel;
+
+    private void OnEnable()
+    {
+        // Ensure wallChanger is assigned
+        if (wallChanger == null)
+        {
+            // Find the changeWallColor script in the scene
+            wallChanger = FindObjectOfType<changeWallColor>();
+            if (wallChanger == null)
+            {
+                Debug.LogError("changeWallColor script not found in the scene.");
+                return;
+            }
+        }
+
+        // Assuming Helper will be called when the scene is loaded
+        // and buttons will be created in CreateButtons method
+    }
+
     void Start()
     {
+       if(wallChanger == null)
+       {
+            Debug.LogError("WallChanger component not found. Please assign it in the inspector.");
+            return; // Stop further execution if wallChanger is not assigned
+        }
         LoadColors();
     }
 
@@ -55,13 +82,13 @@ public class ColorLoader : MonoBehaviour
         {
             // Extract JSON data from the response
             string dataAsJson = www.downloadHandler.text;
+            OVRSceneRoom room = FindObjectOfType<OVRSceneRoom>();
 
             // Deserialize the JSON to the ColorList object
             ColorList colorList = JsonUtility.FromJson<ColorList>(dataAsJson);
             Debug.Log(colorList);
 
-            // Populate UI with the deserialized color data
-            PopulateUI(colorList);
+            PopulateUI(colorList, individualWallsContentPanel, allWallsContentPanel);
         }
     }
 
@@ -98,11 +125,16 @@ public class ColorLoader : MonoBehaviour
 
 
     // Populates UI with color items
-    void PopulateUI(ColorList colorList)
+    void PopulateUI(ColorList colorList, Transform individualWallsContentPanel, Transform allWallsContentPanel)
     {
 
         // Delete existing color items in the content panel
-        foreach (Transform child in contentPanel)
+        foreach (Transform child in individualWallsContentPanel)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (Transform child in allWallsContentPanel)
         {
             Destroy(child.gameObject);
         }
@@ -111,31 +143,36 @@ public class ColorLoader : MonoBehaviour
         foreach (ColorInfo color in colorList.colors)
         {
             // Create new color item prefab as a child of the content panel
-            GameObject newItem = Instantiate(colorItemPrefab, contentPanel);
+            GameObject individualWalls = Instantiate(colorItemPrefab, individualWallsContentPanel);
+            GameObject allWalls = Instantiate(colorItemPrefab, allWallsContentPanel);
 
             // Set the color name in the prefab's Text component
-            newItem.GetComponentInChildren<Text>().text = color.name;
+            individualWalls.GetComponentInChildren<Text>().text = color.name;
+            allWalls.GetComponentInChildren<Text>().text = color.name;
 
             // Assign a random price between 15 and 20 to the color
             color.price = (Mathf.Round(Random.Range(15f, 20.5f) * 2) / 2) - 0.01f; // 21 is exclusive
-            Text priceTextComponent = Instantiate(priceTextPrefab, newItem.transform).GetComponent<Text>();
+            Text individualWallPriceTextComponent = Instantiate(priceTextPrefab, individualWalls.transform).GetComponent<Text>();
+            Text allWallsPriceTextComponent = Instantiate(priceTextPrefab, allWalls.transform).GetComponent<Text>();
+            
             // display price value for price
-            priceTextComponent.text = "$" + color.price.ToString("F2") + " / gallon";
+            individualWallPriceTextComponent.text = "$" + color.price.ToString("F2") + " / gallon";
+            allWallsPriceTextComponent.text = "$" + color.price.ToString("F2") + " / gallon";
 
             // Set its color based on the hex value.
-            Image background = newItem.GetComponentInChildren<Image>();
-            background.color = HexToColor(color.hex);
+            Image individualWallBackground = individualWalls.GetComponentInChildren<Image>();
+            individualWallBackground.color = HexToColor(color.hex);
+            Image allWallsBackground = allWalls.GetComponentInChildren<Image>();
+            allWallsBackground.color = HexToColor(color.hex);
 
-            //newItem.GetComponent<Button>().onClick.AddListener(() => selectedColor = background.color);
-            newItem.GetComponent<Button>().onClick.AddListener(() => setColorAndShowColor(background.color, color.name));
-            newItem.GetComponent<Button>().onClick.AddListener(() => SelectColorFromCatalog(background.color));
-
-
+            individualWalls.GetComponent<Button>().onClick.AddListener(() => setColorAndShowColor(individualWallBackground.color, color.name));
+            allWalls.GetComponent<Button>().onClick.AddListener(() => SelectColorFromCatalog(allWallsBackground.color));
         }
     }
 
     private void SelectColorFromCatalog(Color color)
     {
+        selectedColor = color;
         wallChanger.ChangeAllWallColors(color);
     }
 
