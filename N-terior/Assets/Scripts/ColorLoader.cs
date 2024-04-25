@@ -15,7 +15,8 @@ public class ColorLoader : MonoBehaviour
     private const string hostUrl = "http://20.84.56.123:8080/";
     private const string getColorUrl = hostUrl + "colors"; // Example GET endpoint
     public GameObject colorItemPrefab;
-    public TextMeshProUGUI priceTextPrefab;
+
+    public TMP_Text priceTextPrefab;
 
     public float colorPrice;
     public Color selectedColor;
@@ -23,6 +24,7 @@ public class ColorLoader : MonoBehaviour
 
     private changeWallColor surfaceArea;
     public GameObject textMesh;
+    public GameObject textMesh2;
 
     public changeWallColor wallChanger;
 
@@ -57,6 +59,7 @@ public class ColorLoader : MonoBehaviour
             return; // Stop further execution if wallChanger is not assigned
         }
         LoadColors();
+        colorPrice = 0;
     }
 
     void LoadColors()
@@ -151,8 +154,9 @@ public class ColorLoader : MonoBehaviour
             individualWalls.GetComponentInChildren<TextMeshProUGUI>().text = color.name;
             allWalls.GetComponentInChildren<TextMeshProUGUI>().text = color.name;
 
-            // Assign a random price between 22.5 and 50 to the color
-            color.price = (Mathf.Round(Random.Range(22.5f, 50f) * 2) / 2) - 0.01f; // 50 is exclusive
+            // Assign a random price between 15 and 20 to the color
+            color.price = (Mathf.Round(Random.Range(15f, 20.5f) * 2) / 2) - 0.01f; // 21 is exclusive
+
             TMP_Text individualWallPriceTextComponent = Instantiate(priceTextPrefab, individualWalls.transform).GetComponent<TextMeshProUGUI>();
             TMP_Text allWallsPriceTextComponent = Instantiate(priceTextPrefab, allWalls.transform).GetComponent<TextMeshProUGUI>();
             
@@ -167,14 +171,17 @@ public class ColorLoader : MonoBehaviour
             allWallsBackground.color = HexToColor(color.hex);
 
             individualWalls.GetComponent<Button>().onClick.AddListener(() => setColorAndShowColor(individualWallBackground.color, color.name));
-            allWalls.GetComponent<Button>().onClick.AddListener(() => SelectColorFromCatalog(allWallsBackground.color));
+            allWalls.GetComponent<Button>().onClick.AddListener(() => SelectColorFromCatalog(allWallsBackground.color, color.price, color.name));
         }
     }
 
-    private void SelectColorFromCatalog(Color color)
+    private void SelectColorFromCatalog(Color color, float price, string colorName)
     {
         selectedColor = color;
+        colorPrice = price;
         wallChanger.ChangeAllWallColors(color);
+        textMesh2.GetComponent<TextMeshProUGUI>().text = colorName;
+        textMesh2.GetComponent<TextMeshProUGUI>().color = color;
     }
 
 
