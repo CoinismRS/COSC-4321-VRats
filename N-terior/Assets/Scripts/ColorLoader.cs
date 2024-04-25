@@ -23,6 +23,7 @@ public class ColorLoader : MonoBehaviour
 
     private changeWallColor surfaceArea;
     public GameObject textMesh;
+    public GameObject textMesh2;
 
     public changeWallColor wallChanger;
 
@@ -167,14 +168,17 @@ public class ColorLoader : MonoBehaviour
             allWallsBackground.color = HexToColor(color.hex);
 
             individualWalls.GetComponent<Button>().onClick.AddListener(() => setColorAndShowColor(individualWallBackground.color, color.name));
-            allWalls.GetComponent<Button>().onClick.AddListener(() => SelectColorFromCatalog(allWallsBackground.color));
+            allWalls.GetComponent<Button>().onClick.AddListener(() => SelectColorFromCatalog(allWallsBackground.color, color.price, color.name));
         }
     }
 
-    private void SelectColorFromCatalog(Color color)
+    private void SelectColorFromCatalog(Color color, float price, string colorName)
     {
         selectedColor = color;
+        colorPrice = price;
         wallChanger.ChangeAllWallColors(color);
+        textMesh2.GetComponent<TextMeshProUGUI>().text = colorName;
+        textMesh2.GetComponent<TextMeshProUGUI>().color = color;
     }
 
 
