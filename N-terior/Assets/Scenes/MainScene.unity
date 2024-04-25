@@ -34189,7 +34189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorItemPrefab: {fileID: 4386674598394046565, guid: 18a1cd5a912e540cba0d63c1af7e08bd,
     type: 3}
-  priceTextPrefab: {fileID: 2145080977149826190, guid: 71c8d84deeba44bd19960837cda6db66,
+  priceTextPrefab: {fileID: 2118367711930790855, guid: 4ee0e32863544774a9f45ea68c6a14ac,
     type: 3}
   colorPrice: 0
   selectedColor: {r: 0, g: 0, b: 0, a: 0}
