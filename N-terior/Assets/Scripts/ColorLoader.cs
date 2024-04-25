@@ -152,8 +152,8 @@ public class ColorLoader : MonoBehaviour
             individualWalls.GetComponentInChildren<TextMeshProUGUI>().text = color.name;
             allWalls.GetComponentInChildren<TextMeshProUGUI>().text = color.name;
 
-            // Assign a random price between 15 and 20 to the color
-            color.price = (Mathf.Round(Random.Range(15f, 20.5f) * 2) / 2) - 0.01f; // 21 is exclusive
+            // Assign a random price between 30 and 70 to the color
+            color.price = (Mathf.Round(Random.Range(30f, 70f) * 2) / 2) - 0.01f; // 21 is exclusive
             TextMeshProUGUI individualWallPriceTextComponent = Instantiate(priceTextPrefab, individualWalls.transform).GetComponent<TextMeshProUGUI>();
             TextMeshProUGUI allWallsPriceTextComponent = Instantiate(priceTextPrefab, allWalls.transform).GetComponent<TextMeshProUGUI>();
             
