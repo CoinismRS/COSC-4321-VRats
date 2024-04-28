@@ -7,10 +7,9 @@
     <list default="true" id="24337d3e-d3eb-447d-bae4-00ba146d945f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.N-terior/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.N-terior/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Oculus/OculusProjectConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Oculus/OculusProjectConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/CatalogButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/CatalogButton.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Catalog.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Catalog.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColorInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ColorInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColorLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ColorLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/colors.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/colors.json.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +102,7 @@
       <workItem from="1712755144189" duration="289000" />
       <workItem from="1712989036438" duration="1872000" />
       <workItem from="1713212189362" duration="5003000" />
+      <workItem from="1714265460183" duration="695000" />
     </task>
     <servers />
   </component>
@@ -111,6 +111,17 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

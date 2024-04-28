@@ -12,8 +12,8 @@ using TMPro;
 
 public class ColorLoader : MonoBehaviour
 {
-    private const string hostUrl = "http://20.84.56.123:8080/";
-    private const string getColorUrl = hostUrl + "colors"; // Example GET endpoint
+    // private const string hostUrl = "http://20.84.56.123:8080/";
+    // private const string getColorUrl = hostUrl + "colors"; // Example GET endpoint
     public GameObject colorItemPrefab;
     public TextMeshProUGUI priceTextPrefab;
 
@@ -59,40 +59,60 @@ public class ColorLoader : MonoBehaviour
         }
         LoadColors();
     }
-
+    // Loads the color data from the colors.json file.
     void LoadColors()
     {
-        ServicePointManager.ServerCertificateValidationCallback = (a, b, c, d) => true;
-        // Create a UnityWebRequest object to make the HTTP request
-        UnityWebRequest www = UnityWebRequest.Get(getColorUrl);
-        StartCoroutine(SendWebRequest(www));
-    }
-
-    // Loads the color data from the colors.json file.
-    IEnumerator SendWebRequest(UnityWebRequest www)
-    {
-        // Send the request and wait for the response
-        yield return www.SendWebRequest();
-
-        // Check if there were any errors
-        if (www.result != UnityWebRequest.Result.Success)
+        string filePath = Path.Combine(Application.dataPath, "Resources/colors.json");
+        
+        if (System.IO.File.Exists(filePath))
         {
-            // Log the error if the request fails
-            Debug.LogError("Failed to load color data: " + www.error);
+            string dataAsJson = System.IO.File.ReadAllText(filePath);
+            
+            // Deserialize the JSON to the ColorList object
+            ColorList colorList = JsonUtility.FromJson<ColorList>("{\"colors\":" + dataAsJson + "}");
+            
+            // Populate UI with the deserialized color data
+            PopulateUI(colorList, individualWallsContentPanel, allWallsContentPanel);
         }
         else
         {
-            // Extract JSON data from the response
-            string dataAsJson = www.downloadHandler.text;
-            OVRSceneRoom room = FindObjectOfType<OVRSceneRoom>();
-
-            // Deserialize the JSON to the ColorList object
-            ColorList colorList = JsonUtility.FromJson<ColorList>(dataAsJson);
-            Debug.Log(colorList);
-
-            PopulateUI(colorList, individualWallsContentPanel, allWallsContentPanel);
+            // If the file doesn't exist, log an error message.
+            Debug.LogError("Cannot load color data!");
         }
     }
+    // void LoadColors()
+    // {
+    //     ServicePointManager.ServerCertificateValidationCallback = (a, b, c, d) => true;
+    //     // Create a UnityWebRequest object to make the HTTP request
+    //     UnityWebRequest www = UnityWebRequest.Get(getColorUrl);
+    //     StartCoroutine(SendWebRequest(www));
+    // }
+
+    // Loads the color data from the colors.json file.
+    // IEnumerator SendWebRequest(UnityWebRequest www)
+    // {
+    //     // Send the request and wait for the response
+    //     yield return www.SendWebRequest();
+    //
+    //     // Check if there were any errors
+    //     if (www.result != UnityWebRequest.Result.Success)
+    //     {
+    //         // Log the error if the request fails
+    //         Debug.LogError("Failed to load color data: " + www.error);
+    //     }
+    //     else
+    //     {
+    //         // Extract JSON data from the response
+    //         string dataAsJson = www.downloadHandler.text;
+    //         OVRSceneRoom room = FindObjectOfType<OVRSceneRoom>();
+    //
+    //         // Deserialize the JSON to the ColorList object
+    //         ColorList colorList = JsonUtility.FromJson<ColorList>(dataAsJson);
+    //         Debug.Log(colorList);
+    //
+    //         PopulateUI(colorList, individualWallsContentPanel, allWallsContentPanel);
+    //     }
+    // }
 
 
     // Converts a hex color string to a color object
