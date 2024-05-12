@@ -1,4 +1,4 @@
-# COSC-4321-VRats
+# N-terior
 
 ## Team Members
 * Dinuk Karunaratne - DINKU2
@@ -30,17 +30,3 @@ A VR interior design application for users to plan room layouts that:
 - helps with feasibility analysis when remodeling if you know what's behind the drywall (i.e. - are the studs spaced out enough to allow the user to handle certain heavy objects)
 - reduction in rework because you'll know exactly how something looks after mounting it
 - better spatial awareness if you're hanging up multiple objects so that you can make changes if needed before hanging
-
-
-## Tech requirements used in this project
-- Passthrough Development - 25 points
-- Hand Interactions - 20 points
-- Spatial Anchors - 30 points (Stretch goal)
-- Multi User - 50 points (Stretch goal)
-- Controller Support - 5 points
-- Scene Understanding / MRUK - 40 points
-- Web API Integration - 30 Points
-- At least one approved senario - 10-30 points
-
-# Instructions
-
