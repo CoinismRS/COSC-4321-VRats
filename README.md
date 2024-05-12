@@ -6,7 +6,7 @@
 * Jorge Umanzor - j-uzr
 * Jackie Nguyen - Lacieness
 * Micheal Thomas - mthom2333
-* Zayed - Zayyrahman 
+* Zayed Rahman - Zayyrahman 
 * Rafael Galban - zentro
 * Ilan Lipsky - CoinismRS
 
