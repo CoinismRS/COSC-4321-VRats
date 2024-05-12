@@ -19,6 +19,6 @@ A VR interior design application for users to plan room layouts that:
 
 ## Benefits:
 - Does the heavy lifting of cost effective room layout setup. 
-- Helps with feasibility analysis when remodeling if you know what's behind the drywall (i.e. - are the studs spaced out enough to allow the user to handle certain heavy objects)
-- Reduction in rework because you'll know exactly how something looks after mounting it
-- Better spatial awareness if you're hanging up multiple objects so that you can make changes if needed before hanging
+- Helps with feasibility analysis when remodeling if you know what's behind the drywall (i.e. - are the studs spaced out enough to allow the user to handle certain heavy objects).
+- Reduction in rework because you'll know exactly how something looks after mounting it.
+- Better spatial awareness if you're hanging up multiple objects so that you can make changes if needed before hanging.
